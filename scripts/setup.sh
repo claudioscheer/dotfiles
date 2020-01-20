@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install curl wget keepassxc ca-certificates apt-transport-https uget krdc -y
+sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc -y
 
 # Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
