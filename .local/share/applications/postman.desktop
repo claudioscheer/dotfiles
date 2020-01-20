@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Postman
+Type=Application
+Comment=API request
+Exec=/opt/Postman/Postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Categories=Office;
+GenericName=Postman

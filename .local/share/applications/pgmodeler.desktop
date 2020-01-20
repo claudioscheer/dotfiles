@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=pgModeler
+Type=Application
+Comment=Open source data modeling tool
+Exec=pgmodeler
+Icon=/usr/share/pgmodeler/conf/pgmodeler_logo.png
+Categories=Office;
+GenericName=pgModeler
