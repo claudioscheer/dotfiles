@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice -y
+sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash -y
 
 # Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
@@ -64,6 +64,11 @@ wget https://github.com/turtl/desktop/releases/download/v0.7.2.5/turtl-0.7.2.5-l
 tar -xvjf turtl.tar.bz2
 sudo ./turtl-linux64/install.sh
 
-#VMWare
+# VMWare
 wget https://download3.vmware.com/software/player/file/VMware-Player-15.5.1-15018445.x86_64.bundle -O vmware.bundle
 sudo sh vmware.bundle
+
+# Timeshift
+sudo add-apt-repository -y ppa:teejee2008/timeshift
+sudo apt update
+sudo apt install timeshift -y
