@@ -72,3 +72,6 @@ sudo sh vmware.bundle
 sudo add-apt-repository -y ppa:teejee2008/timeshift
 sudo apt update
 sudo apt install timeshift -y
+
+# Settings
+git config --global core.editor "vim"
