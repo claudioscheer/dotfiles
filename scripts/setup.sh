@@ -75,3 +75,4 @@ sudo apt install timeshift -y
 
 # Settings
 git config --global core.editor "vim"
+sudo update-alternatives --config editor
