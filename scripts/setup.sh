@@ -73,6 +73,11 @@ sudo add-apt-repository -y ppa:teejee2008/timeshift
 sudo apt update
 sudo apt install timeshift -y
 
+# Task Coach
+sudo add-apt-repository ppa:taskcoach-developers/ppa -y
+sudo apt update
+sudo apt install taskcoach -y
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
