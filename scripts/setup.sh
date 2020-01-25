@@ -82,3 +82,6 @@ sudo apt install taskcoach -y
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
 kwriteconfig5 --file kscreenlockerrc --group Greeter --group LnF --group General --key showMediaControls --type bool false
+
+# Vim plugins
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

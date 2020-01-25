@@ -6,3 +6,13 @@ set number
 filetype indent on
 set autoindent
 set cursorline
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+" Python autocomplete
+Plug 'davidhalter/jedi-vim'
+
+Plug 'preservim/nerdtree'
+
+call plug#end()
