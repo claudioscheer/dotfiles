@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " Python autocomplete
 Plug 'davidhalter/jedi-vim'
-
 Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
