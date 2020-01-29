@@ -78,6 +78,10 @@ sudo add-apt-repository ppa:taskcoach-developers/ppa -y
 sudo apt update
 sudo apt install taskcoach -y
 
+# draw.io
+wget https://github.com/jgraph/drawio-desktop/releases/download/v12.5.3/draw.io-amd64-12.5.3.deb -O draw.io.deb
+sudo dpkg -i draw.io.deb
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
