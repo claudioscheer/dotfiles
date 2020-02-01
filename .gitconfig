@@ -1,0 +1,7 @@
+[core]
+	editor = vim
+[user]
+	name = Claudio Scheer
+	email = claudioscheer@protonmail.com
+[credential]
+	helper = store
