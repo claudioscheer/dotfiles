@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Android Studio
+Type=Application
+Comment=Android Studio
+Exec=/opt/android-studio/bin/studio.sh
+Icon=/opt/android-studio/bin/studio.png
+Categories=Development;IDE;
+GenericName=Android Studio
