@@ -90,6 +90,10 @@ sudo apt -f install
 # Nativefier
 sudo npm install nativefier -g
 
+# WhatsApp Web
+nativefier "https://web.whatsapp.com/"
+sudo mv WhatsAppWeb-linux-x64/ /opt/WhatsAppWeb
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
