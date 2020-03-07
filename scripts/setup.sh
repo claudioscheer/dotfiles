@@ -87,6 +87,9 @@ wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.d
 sudo dpkg -i slack.deb
 sudo apt -f install
 
+# Nativefier
+sudo npm install nativefier -g
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
