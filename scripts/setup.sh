@@ -82,6 +82,11 @@ sudo apt install taskcoach -y
 wget https://github.com/jgraph/drawio-desktop/releases/download/v12.5.3/draw.io-amd64-12.5.3.deb -O draw.io.deb
 sudo dpkg -i draw.io.deb
 
+# Slack
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb -O slack.deb
+sudo dpkg -i slack.deb
+sudo apt -f install
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
