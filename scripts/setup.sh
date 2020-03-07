@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio -y
+sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio telegram-desktop -y
 
 # Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
