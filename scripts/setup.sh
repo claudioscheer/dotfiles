@@ -94,6 +94,12 @@ sudo npm install nativefier -g
 nativefier "https://web.whatsapp.com/"
 sudo mv WhatsAppWeb-linux-x64/ /opt/WhatsAppWeb
 
+# Tor Browser
+wget https://www.torproject.org/dist/torbrowser/9.0.5/tor-browser-linux64-9.0.5_en-US.tar.xz -O tor.tar.xz
+tar xf tor.tar.xz
+sudo mv tor-browser_en-US /opt/tor-browser
+/opt/tor-browser/start-tor-browser.desktop --register-app
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
