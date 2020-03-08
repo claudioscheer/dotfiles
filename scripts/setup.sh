@@ -9,9 +9,9 @@ sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uge
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 sh miniconda.sh
 
-# VSCode
-wget https://az764295.vo.msecnd.net/stable/26076a4de974ead31f97692a0d32f90d735645c0/code_1.41.1-1576681836_amd64.deb -O vscode.deb
-sudo dpkg -i vscode.deb
+# VSCodium
+wget https://github.com/VSCodium/vscodium/releases/download/1.42.1/codium_1.42.1-1581651960_amd64.deb -O codium.deb
+sudo dpkg -i codium.deb
 sudo apt -f install
 
 # DBeaver
