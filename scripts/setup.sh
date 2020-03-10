@@ -91,7 +91,7 @@ sudo apt -f install
 sudo npm install nativefier -g
 
 # WhatsApp Web
-nativefier "https://web.whatsapp.com/"
+nativefier "https://web.whatsapp.com" --inject ../js/whatsapp-nativefier-inject.js
 sudo mv WhatsAppWeb-linux-x64/ /opt/WhatsAppWeb
 
 # Tor Browser
