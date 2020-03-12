@@ -100,6 +100,11 @@ tar xf tor.tar.xz
 sudo mv tor-browser_en-US /opt/tor-browser
 /opt/tor-browser/start-tor-browser.desktop --register-app
 
+# NetBeans
+wget http://ftp.unicamp.br/pub/apache/netbeans/netbeans/11.3/netbeans-11.3-bin.zip -O netbeans.zip
+unzip netbeans.zip
+sudo mv netbeans /opt
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor

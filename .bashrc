@@ -3,7 +3,8 @@ alias gl="git pull"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gpf!="git push --force"
-alias gsb="git status -sb"                                                          
+alias gsb="git status -sb"
+alias gc="git commit"
 
 export CHROME_PATH=/usr/bin/brave-browser-stable
 export ANDROID_HOME=$HOME/Android/Sdk
