@@ -105,6 +105,12 @@ wget http://ftp.unicamp.br/pub/apache/netbeans/netbeans/11.3/netbeans-11.3-bin.z
 unzip netbeans.zip
 sudo mv netbeans /opt
 
+# Typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+sudo apt-get install typora
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
