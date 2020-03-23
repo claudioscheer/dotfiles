@@ -5,6 +5,7 @@ alias gpf="git push --force-with-lease"
 alias gpf!="git push --force"
 alias gsb="git status -sb"
 alias gc="git commit"
+alias gac="ga . && gc"
 
 export CHROME_PATH=/usr/bin/brave-browser-stable
 export ANDROID_HOME=$HOME/Android/Sdk
