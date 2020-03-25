@@ -1,0 +1,14 @@
+amazonwebservices.aws-toolkit-vscode
+Dart-Code.dart-code
+Dart-Code.flutter
+James-Yu.latex-workshop
+mammothb.gnuplot
+marp-team.marp-vscode
+mauve.terraform
+ms-python.python
+ms-vscode.cpptools
+ms-vsliveshare.vsliveshare
+redhat.java
+vscjava.vscode-java-debug
+YuTengjing.open-in-external-app
+yzhang.markdown-all-in-one

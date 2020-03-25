@@ -1,0 +1,19 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "python.dataScience.askForKernelRestart": false,
+    "window.zoomLevel": 0,
+    "terminal.integrated.scrollback": 1000000,
+    "terminal.integrated.inheritEnv": false,
+    "openInExternalApp.openMapper": [
+        {
+            "extensionName": "html",
+            "apps": [
+                {
+                    "title": "Firefox",
+                    "openCommand": "firefox"
+                }
+            ]
+        }
+    ]
+}
