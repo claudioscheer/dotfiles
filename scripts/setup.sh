@@ -111,6 +111,13 @@ sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
 sudo apt-get install typora
 
+# Zotero
+wget https://download.zotero.org/client/release/5.0.85/Zotero-5.0.85_linux-x86_64.tar.bz2 -O zotero.tar.bz2
+tar -xvjf zotero.tar.bz2
+sudo mv Zotero_linux-x86_64/ /opt/zotero
+/opt/zotero/set_launcher_icon
+ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
