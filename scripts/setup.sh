@@ -15,7 +15,7 @@ sudo dpkg -i code.deb
 sudo apt -f install
 
 # DBeaver
-wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O dbeaver.deb
+wget https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb -O dbeaver.deb
 sudo dpkg -i dbeaver.deb
 sudo apt -f install
 
