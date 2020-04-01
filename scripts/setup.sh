@@ -118,6 +118,9 @@ sudo mv Zotero_linux-x86_64/ /opt/zotero
 /opt/zotero/set_launcher_icon
 ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
 
+# OCRmyPDF
+sudo apt-get install ocrmypdf -y
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
