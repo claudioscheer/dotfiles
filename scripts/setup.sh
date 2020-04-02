@@ -121,6 +121,11 @@ ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
 # OCRmyPDF
 sudo apt-get install ocrmypdf -y
 
+# Etcher
+wget https://github.com/balena-io/etcher/releases/download/v1.5.80/balena-etcher-electron_1.5.80_amd64.deb -O balena.deb
+sudo dpkg -i balena.deb
+sudo apt -f install
+
 # Settings
 git config --global core.editor "vim"
 sudo update-alternatives --config editor
