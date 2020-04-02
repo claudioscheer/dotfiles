@@ -12,12 +12,12 @@ sh miniconda.sh
 # VSCode
 wget https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb -O code.deb
 sudo dpkg -i code.deb
-sudo apt -f install
+sudo apt -f install -y
 
 # DBeaver
 wget https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb -O dbeaver.deb
 sudo dpkg -i dbeaver.deb
-sudo apt -f install
+sudo apt -f install -y
 
 # PostgreSQL 11
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -85,7 +85,7 @@ sudo dpkg -i draw.io.deb
 # Slack
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb -O slack.deb
 sudo dpkg -i slack.deb
-sudo apt -f install
+sudo apt -f install -y
 
 # Nativefier
 sudo npm install nativefier -g
@@ -124,7 +124,11 @@ sudo apt-get install ocrmypdf -y
 # Etcher
 wget https://github.com/balena-io/etcher/releases/download/v1.5.80/balena-etcher-electron_1.5.80_amd64.deb -O balena.deb
 sudo dpkg -i balena.deb
-sudo apt -f install
+sudo apt -f install -y
+
+# Final upgrade
+sudo apt update
+sudo apt upgrade -y
 
 # Settings
 git config --global core.editor "vim"
