@@ -94,6 +94,10 @@ sudo npm install nativefier -g
 nativefier "https://web.whatsapp.com" --inject ../js/whatsapp-nativefier-inject.js
 sudo mv WhatsAppWeb-linux-x64/ /opt/WhatsAppWeb
 
+# Overleaf
+nativefier "https://www.overleaf.com" -n Overleaf
+sudo mv Overleaf-linux-x64/ /opt/Overleaf
+
 # Tor Browser
 wget https://www.torproject.org/dist/torbrowser/9.0.5/tor-browser-linux64-9.0.5_en-US.tar.xz -O tor.tar.xz
 tar xf tor.tar.xz
