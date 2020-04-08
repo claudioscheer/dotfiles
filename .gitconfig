@@ -3,3 +3,5 @@
 [user]
 	name = Claudio Scheer
 	email = claudioscheer@protonmail.com
+[commit]
+	gpgsign = true

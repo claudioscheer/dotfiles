@@ -135,7 +135,6 @@ sudo apt update
 sudo apt upgrade -y
 
 # Settings
-git config --global core.editor "vim"
 sudo update-alternatives --config editor
 kwriteconfig5 --file kscreenlockerrc --group Greeter --group LnF --group General --key showMediaControls --type bool false
 
