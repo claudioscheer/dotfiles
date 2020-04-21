@@ -3,11 +3,13 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio telegram-desktop gimp pdfshuffler -y
+sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio telegram-desktop gimp pdfshuffler terminator -y
 
-# Miniconda
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-sh miniconda.sh
+# Syncthing
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt update
+sudo apt install syncthing -y
 
 # VSCode
 wget https://az764295.vo.msecnd.net/stable/c47d83b293181d9be64f27ff093689e8e7aed054/code_1.42.1-1581432938_amd64.deb -O code.deb
@@ -32,12 +34,6 @@ sudo apt install pgmodeler -y
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
 tar -zxvf postman.tar.gz
 sudo mv Postman /opt/
-
-# Syncthing
-curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-sudo apt update
-sudo apt install syncthing -y
 
 # Spotify
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
@@ -113,7 +109,7 @@ sudo mv netbeans /opt
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
-sudo apt-get install typora
+sudo apt-get install typora -y
 
 # Zotero
 wget https://download.zotero.org/client/release/5.0.85/Zotero-5.0.85_linux-x86_64.tar.bz2 -O zotero.tar.bz2
@@ -129,6 +125,10 @@ sudo apt-get install ocrmypdf -y
 wget https://github.com/balena-io/etcher/releases/download/v1.5.80/balena-etcher-electron_1.5.80_amd64.deb -O balena.deb
 sudo dpkg -i balena.deb
 sudo apt -f install -y
+
+# Miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+sh miniconda.sh -b -p $HOME/miniconda
 
 # Final upgrade
 sudo apt update
