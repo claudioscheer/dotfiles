@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio telegram-desktop gimp pdfshuffler terminator -y
+sudo apt install git curl wget keepassxc ca-certificates apt-transport-https uget krdc libreoffice gnucash vim build-essential speedcrunch obs-studio telegram-desktop gimp pdfshuffler terminator flameshot -y
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
