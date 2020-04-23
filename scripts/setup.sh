@@ -17,23 +17,23 @@ sudo dpkg -i code.deb
 sudo apt -f install -y
 
 # DBeaver
-wget https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb -O dbeaver.deb
-sudo dpkg -i dbeaver.deb
-sudo apt -f install -y
+# wget https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb -O dbeaver.deb
+# sudo dpkg -i dbeaver.deb
+# sudo apt -f install -y
 
 # PostgreSQL 11
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-sudo apt update
-sudo apt install postgresql-client-11 -y
+# wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+# sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+# sudo apt update
+# sudo apt install postgresql-client-11 -y
 
 # pgModeler
-sudo apt install pgmodeler -y
+# sudo apt install pgmodeler -y
 
 # Postman
-wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
-tar -zxvf postman.tar.gz
-sudo mv Postman /opt/
+# wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+# tar -zxvf postman.tar.gz
+# sudo mv Postman /opt/
 
 # Spotify
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
@@ -61,18 +61,18 @@ tar -xvjf turtl.tar.bz2
 sudo ./turtl-linux64/install.sh
 
 # VMWare
-wget https://download3.vmware.com/software/player/file/VMware-Player-15.5.1-15018445.x86_64.bundle -O vmware.bundle
-sudo sh vmware.bundle
+# wget https://download3.vmware.com/software/player/file/VMware-Player-15.5.1-15018445.x86_64.bundle -O vmware.bundle
+# sudo sh vmware.bundle
 
 # Timeshift
-sudo add-apt-repository -y ppa:teejee2008/timeshift
-sudo apt update
-sudo apt install timeshift -y
+# sudo add-apt-repository -y ppa:teejee2008/timeshift
+# sudo apt update
+# sudo apt install timeshift -y
 
 # Task Coach
-sudo add-apt-repository ppa:taskcoach-developers/ppa -y
-sudo apt update
-sudo apt install taskcoach -y
+# sudo add-apt-repository ppa:taskcoach-developers/ppa -y
+# sudo apt update
+# sudo apt install taskcoach -y
 
 # draw.io
 wget https://github.com/jgraph/drawio-desktop/releases/download/v12.5.3/draw.io-amd64-12.5.3.deb -O draw.io.deb
@@ -101,9 +101,9 @@ sudo mv tor-browser_en-US /opt/tor-browser
 /opt/tor-browser/start-tor-browser.desktop --register-app
 
 # NetBeans
-wget http://ftp.unicamp.br/pub/apache/netbeans/netbeans/11.3/netbeans-11.3-bin.zip -O netbeans.zip
-unzip netbeans.zip
-sudo mv netbeans /opt
+# wget http://ftp.unicamp.br/pub/apache/netbeans/netbeans/11.3/netbeans-11.3-bin.zip -O netbeans.zip
+# unzip netbeans.zip
+# sudo mv netbeans /opt
 
 # Typora
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -135,8 +135,8 @@ sudo apt update
 sudo apt upgrade -y
 
 # Settings
-sudo update-alternatives --config editor
-kwriteconfig5 --file kscreenlockerrc --group Greeter --group LnF --group General --key showMediaControls --type bool false
+# sudo update-alternatives --config editor
+# kwriteconfig5 --file kscreenlockerrc --group Greeter --group LnF --group General --key showMediaControls --type bool false
 
 # Vim plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
