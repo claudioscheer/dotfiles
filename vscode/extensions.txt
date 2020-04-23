@@ -7,6 +7,11 @@ ms-python.python
 ms-vscode.cpptools
 ms-vsliveshare.vsliveshare
 redhat.java
+VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
 YuTengjing.open-in-external-app
 yzhang.markdown-all-in-one
