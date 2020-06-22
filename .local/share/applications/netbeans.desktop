@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=NetBeans
-Type=Application
-Comment=NetBeans
-Exec=/opt/netbeans/bin/netbeans
-Icon=/opt/netbeans/nb/netbeans.png
-Categories=Development;IDE;
-GenericName=NetBeans

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Overleaf
-Type=Application
-Comment=Overleaf
-Exec=/opt/Overleaf/Overleaf
-Icon=/opt/Overleaf/resources/app/icon.png
-Categories=Office;
-GenericName=WhatsApp Web
