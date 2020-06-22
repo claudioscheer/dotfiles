@@ -122,6 +122,11 @@ sudo apt-get install -y \
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
+# AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
