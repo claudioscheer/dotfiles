@@ -22,7 +22,8 @@ sudo apt install -y \
     owncloud-client \
     caffeine \
     guvcview \
-    openvpn
+    openvpn \
+    openjdk-11-jdk
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -

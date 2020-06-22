@@ -1,6 +1,5 @@
 James-Yu.latex-workshop
 jan-dolejsi.pddl
-janisdd.vscode-edit-csv
 ms-python.python
 ms-vscode.cpptools
 redhat.java
