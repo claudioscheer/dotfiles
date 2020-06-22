@@ -1,7 +1,6 @@
 {
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "python.dataScience.askForKernelRestart": false,
     "window.zoomLevel": 0,
     "terminal.integrated.scrollback": 1000000,
     "openInExternalApp.openMapper": [
@@ -14,5 +13,8 @@
                 }
             ]
         }
-    ]
+    ],
+    "editor.wordWrap": "on",
+    "explorer.compactFolders": false,
+    "editor.codeActionsOnSave": null
 }
