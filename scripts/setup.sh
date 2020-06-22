@@ -21,7 +21,8 @@ sudo apt install -y \
     mypaint \
     owncloud-client \
     caffeine \
-    guvcview
+    guvcview \
+    openvpn
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
