@@ -5,3 +5,7 @@
 	email = claudioscheer@protonmail.com
 [commit]
 	gpgsign = true
+[credential]
+	helper = store
+[http]
+	sslVerify = false
