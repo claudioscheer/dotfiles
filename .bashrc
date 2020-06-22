@@ -11,6 +11,7 @@ alias cd2="cd ../.."
 alias cd3="cd2 && cd .."
 alias cd4="cd3 && cd .."
 
+export GPG_TTY=$(tty)
 export CHROME_PATH=/usr/bin/brave-browser-stable
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator

@@ -23,7 +23,8 @@ sudo apt install -y \
     caffeine \
     guvcview \
     openvpn \
-    openjdk-11-jdk
+    openjdk-11-jdk \
+    gnupg2
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
