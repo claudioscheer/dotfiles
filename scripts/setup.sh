@@ -24,7 +24,8 @@ sudo apt install -y \
     guvcview \
     openvpn \
     openjdk-11-jdk \
-    gnupg2
+    gnupg2 \
+    pdf-presenter-console
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
