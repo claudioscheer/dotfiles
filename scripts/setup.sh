@@ -25,7 +25,8 @@ sudo apt install -y \
     openvpn \
     openjdk-11-jdk \
     gnupg2 \
-    pdf-presenter-console
+    pdf-presenter-console \
+    ffmpeg
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
