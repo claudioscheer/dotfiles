@@ -26,7 +26,8 @@ sudo apt install -y \
     openjdk-11-jdk \
     gnupg2 \
     pdf-presenter-console \
-    ffmpeg
+    ffmpeg \
+    audacity
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -85,7 +86,9 @@ sudo apt -f install -y
 wget https://www.torproject.org/dist/torbrowser/9.5/tor-browser-linux64-9.5_en-US.tar.xz -O tor.tar.xz
 tar xf tor.tar.xz
 sudo mv tor-browser_en-US /opt/tor-browser
-/opt/tor-browser/start-tor-browser.desktop --register-app
+cd /opt/tor-browser
+./start-tor-browser.desktop --register-app
+cd -
 
 # Typora
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -136,9 +139,9 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 sudo apt update
 sudo apt upgrade -y
 
-# Miniconda
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-sh miniconda.sh
+# # Miniconda
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+# sh miniconda.sh
 
 # Settings
 sudo update-alternatives --config editor
