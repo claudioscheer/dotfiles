@@ -27,7 +27,8 @@ sudo apt install -y \
     gnupg2 \
     pdf-presenter-console \
     ffmpeg \
-    audacity
+    audacity \
+    htop
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
