@@ -136,9 +136,15 @@ sudo ./aws/install
 # Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
 
+# Rambox CE
+wget https://github.com/ramboxapp/community-edition/releases/download/0.7.5/Rambox-0.7.5-linux-amd64.deb -O rambox.deb
+sudo dpkg -i rambox.deb
+sudo apt -f install -y
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
+sudo apt autoremove
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
