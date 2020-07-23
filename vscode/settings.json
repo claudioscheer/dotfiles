@@ -16,5 +16,8 @@
     ],
     "editor.wordWrap": "on",
     "explorer.compactFolders": false,
-    "editor.codeActionsOnSave": null
+    "editor.codeActionsOnSave": null,
+    "files.associations": {
+        "*.gnp": "gnuplot"
+    }
 }
