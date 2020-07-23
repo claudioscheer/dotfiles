@@ -30,7 +30,8 @@ sudo apt install -y \
     audacity \
     htop \
     xclip \
-    bat
+    bat \
+    gnuplot
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
