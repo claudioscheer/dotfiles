@@ -31,7 +31,8 @@ sudo apt install -y \
     htop \
     xclip \
     bat \
-    gnuplot
+    gnuplot \
+    rename
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
