@@ -1,5 +1,4 @@
 James-Yu.latex-workshop
-jan-dolejsi.pddl
 ms-python.python
 ms-vscode.cpptools
 redhat.java
@@ -7,3 +6,4 @@ vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
 YuTengjing.open-in-external-app
 yzhang.markdown-all-in-one
+mammothb.gnuplot
