@@ -29,7 +29,8 @@ sudo apt install -y \
     ffmpeg \
     audacity \
     htop \
-    xclip
+    xclip \
+    bat
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
