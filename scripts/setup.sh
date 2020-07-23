@@ -148,6 +148,9 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove
 
+# Create symlinks.
+sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 # sh miniconda.sh
