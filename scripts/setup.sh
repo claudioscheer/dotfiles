@@ -28,7 +28,8 @@ sudo apt install -y \
     pdf-presenter-console \
     ffmpeg \
     audacity \
-    htop
+    htop \
+    xclip
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
