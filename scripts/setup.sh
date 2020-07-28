@@ -32,7 +32,8 @@ sudo apt install -y \
     xclip \
     bat \
     gnuplot \
-    rename
+    rename \
+    virt-manager
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
