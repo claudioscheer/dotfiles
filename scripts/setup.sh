@@ -33,7 +33,8 @@ sudo apt install -y \
     bat \
     gnuplot \
     rename \
-    virt-manager
+    virt-manager \
+    golang
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
