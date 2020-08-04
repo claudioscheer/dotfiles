@@ -19,5 +19,6 @@
     "editor.codeActionsOnSave": null,
     "files.associations": {
         "*.gnp": "gnuplot"
-    }
+    },
+    "go.formatTool": "goimports"
 }
