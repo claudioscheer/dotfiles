@@ -152,8 +152,19 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove
 
-# Create symlinks.
+# Create symlinks
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+
+# Copy files
+cd ..
+cp .gitconfig ~
+cp .vimrc ~
+cp .local/share/applications/pgmodeler.desktop .local/share/applications
+cp .local/share/applications/postman.desktop .local/share/applications
+cp .local/share/applications/android-studio.desktop .local/share/applications
+echo >> ~/.bashrc
+cat .bashrc >> ~/.bashrc
+cd -
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
