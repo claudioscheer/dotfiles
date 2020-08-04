@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=WhatsApp Web
-Type=Application
-Comment=WhatsApp Web
-Exec=/opt/WhatsAppWeb/WhatsAppWeb
-Icon=/opt/WhatsAppWeb/resources/app/icon.png
-Categories=Network;InstantMessaging;
-GenericName=WhatsApp Web
