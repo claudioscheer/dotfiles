@@ -9,3 +9,5 @@
 	program = gpg2
 [credential]
 	helper = store
+[http]
+	sslVerify = false
