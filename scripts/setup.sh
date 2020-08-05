@@ -34,7 +34,8 @@ sudo apt install -y \
     gnuplot \
     rename \
     virt-manager \
-    golang
+    golang \
+    mariadb-client
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
