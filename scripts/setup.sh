@@ -35,7 +35,8 @@ sudo apt install -y \
     rename \
     virt-manager \
     golang \
-    mariadb-client
+    mariadb-client \
+    postgresql-client
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
