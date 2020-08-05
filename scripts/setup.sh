@@ -147,6 +147,11 @@ wget https://github.com/ramboxapp/community-edition/releases/download/0.7.5/Ramb
 sudo dpkg -i rambox.deb
 sudo apt -f install -y
 
+# yEd
+wget https://www.yworks.com/resources/yed/demo/yEd-3.20.zip -O yEd-3.20.zip
+unzip yEd-3.20.zip
+sudo mv yed-3.20/ /opt
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
