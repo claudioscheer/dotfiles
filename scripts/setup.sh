@@ -132,7 +132,8 @@ sudo add-apt-repository \
 sudo apt-get install -y \
     docker-ce \
     docker-ce-cli \
-    containerd.io
+    containerd.io \
+    docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
