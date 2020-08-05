@@ -150,7 +150,7 @@ sudo apt -f install -y
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
-sudo apt autoremove
+sudo apt autoremove -y
 
 # Create symlinks
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
@@ -159,11 +159,12 @@ sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 cd ..
 cp .gitconfig ~
 cp .vimrc ~
-cp .local/share/applications/pgmodeler.desktop .local/share/applications
-cp .local/share/applications/postman.desktop .local/share/applications
-cp .local/share/applications/android-studio.desktop .local/share/applications
+cp .local/share/applications/pgmodeler.desktop ~/.local/share/applications
+cp .local/share/applications/postman.desktop ~/.local/share/applications
+cp .local/share/applications/android-studio.desktop ~/.local/share/applications
 echo >> ~/.bashrc
 cat .bashrc >> ~/.bashrc
+source ~/.bashrc
 cd -
 
 # # Miniconda
