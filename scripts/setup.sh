@@ -155,6 +155,12 @@ wget https://www.yworks.com/resources/yed/demo/yEd-3.20.zip -O yEd-3.20.zip
 unzip yEd-3.20.zip
 sudo mv yed-3.20/ /opt
 
+# adblock
+wget https://raw.githubusercontent.com/MattiSG/adblock/master/adblock -O adblock
+chmod +x adblock
+sudo mv adblock /usr/local/bin/
+sudo adblock on
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
