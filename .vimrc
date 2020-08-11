@@ -55,12 +55,12 @@ let mapleader = " "
 let g:mapleader = " "
 
 " Keys mapping.
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-f> :BLines<CR>
+nnoremap <C-p> :GFiles<CR> " Find for file.
+nnoremap <C-f> :BLines<CR> " Find for line.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
-nnoremap <leader>a ggVG
+nnoremap <leader>a ggVG " Select all.
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
