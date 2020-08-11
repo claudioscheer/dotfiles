@@ -23,8 +23,22 @@ Plug 'tpope/vim-fugitive'
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
 
+" https://github.com/ycm-core/YouCompleteMe
+Plug 'ycm-core/YouCompleteMe'
+
 call plug#end()
 
+" Persistent undo.
+if !isdirectory($HOME."/.dotfiles/vim/undodir")
+    call mkdir($HOME."/.dotfiles/vim/undodir", "p")
+endif
+
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 " Maximum number of changes that can be undone.
+set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
+
+set encoding=utf-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
 colorscheme gruvbox
@@ -32,14 +46,21 @@ set background=dark
 set relativenumber
 syntax enable
 set autoindent
+set shiftwidth=4
+set tabstop=4
+set mouse=a
+filetype plugin indent on
+filetype on
+let mapleader = " "
+let g:mapleader = " "
 
-" Keys mapping
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Keys mapping.
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
-nnoremap ; @:<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
+nnoremap <leader>a ggVG
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>

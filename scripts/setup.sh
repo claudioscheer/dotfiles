@@ -38,7 +38,9 @@ sudo apt install -y \
     mariadb-client \
     postgresql-client \
     clangd \
-    clang-format
+    clang-format \
+    cmake \
+    python3-dev
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -189,6 +191,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 vim -c "CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab|q"
 vim -c "PlugInstall|q"
+cd ~/.vim/plugged/YouCompleteMe
+./install.py --all
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
