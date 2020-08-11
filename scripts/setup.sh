@@ -189,10 +189,11 @@ cp .vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c "CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab|q"
-vim -c "PlugInstall|q"
+vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab" -c q -c q
+vim -c ":PlugInstall" -c q -c q
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --all
+# setxkbmap -option caps:swapescape # Switch Caps and Esc.
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh

@@ -1,3 +1,29 @@
+syntax on
+
+" Settings.
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 " Maximum number of changes that can be undone.
+set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
+set noswapfile
+set nobackup
+set nowrap
+set smartcase
+set encoding=utf-8
+set number
+set relativenumber
+syntax enable
+set autoindent
+set shiftwidth=4
+set tabstop=4
+set mouse=a
+filetype plugin indent on
+filetype on
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
+
 call plug#begin('~/.vim/plugged')
 
 " https://github.com/junegunn/fzf.vim
@@ -26,39 +52,30 @@ Plug 'dense-analysis/ale'
 " https://github.com/ycm-core/YouCompleteMe
 Plug 'ycm-core/YouCompleteMe'
 
+" https://github.com/lervag/vimtex
+Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
+
+" https://github.com/xuhdev/vim-latex-live-preview
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 call plug#end()
 
-" Persistent undo.
-if !isdirectory($HOME."/.dotfiles/vim/undodir")
-    call mkdir($HOME."/.dotfiles/vim/undodir", "p")
-endif
+let g:tex_flavor='latex'
 
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000 " Maximum number of changes that can be undone.
-set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
-
-set encoding=utf-8
-let g:airline#extensions#tabline#enabled = 1
+" Style.
+let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='deus'
 colorscheme gruvbox
 set background=dark
-set relativenumber
-syntax enable
-set autoindent
-set shiftwidth=4
-set tabstop=4
-set mouse=a
-filetype plugin indent on
-filetype on
-let mapleader = " "
-let g:mapleader = " "
 
 " Keys mapping.
+let mapleader=" "
+let g:mapleader=" "
 nnoremap <C-p> :GFiles<CR> " Find for file.
 nnoremap <C-f> :BLines<CR> " Find for line.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nnoremap <leader>a ggVG " Select all.
