@@ -36,7 +36,9 @@ sudo apt install -y \
     virt-manager \
     golang \
     mariadb-client \
-    postgresql-client
+    postgresql-client \
+    clangd \
+    clang-format
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -172,7 +174,6 @@ sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 # Copy files
 cd ..
 cp .gitconfig ~
-cp .vimrc ~
 cp .local/share/applications/pgmodeler.desktop ~/.local/share/applications
 cp .local/share/applications/postman.desktop ~/.local/share/applications
 cp .local/share/applications/android-studio.desktop ~/.local/share/applications
@@ -180,6 +181,14 @@ echo >> ~/.bashrc
 cat .bashrc >> ~/.bashrc
 source ~/.bashrc
 cd -
+
+# Configure Vim
+cp .vimrc ~
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim -c "CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab|q"
+vim -c "PlugInstall|q"
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
