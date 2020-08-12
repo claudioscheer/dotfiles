@@ -7,7 +7,6 @@ set undolevels=1000 " Maximum number of changes that can be undone.
 set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
 set noswapfile
 set nobackup
-set nowrap
 set smartcase
 set encoding=utf-8
 set number
@@ -55,8 +54,11 @@ Plug 'ycm-core/YouCompleteMe'
 " https://github.com/lervag/vimtex
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 
-" https://github.com/xuhdev/vim-latex-live-preview
-" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" https://github.com/tpope/vim-repeat
+Plug 'tpope/vim-repeat'
+
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
