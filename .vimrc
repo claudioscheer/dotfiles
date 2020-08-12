@@ -7,6 +7,7 @@ set undolevels=1000 " Maximum number of changes that can be undone.
 set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
 set noswapfile
 set nobackup
+set ignorecase
 set smartcase
 set encoding=utf-8
 set number
