@@ -17,12 +17,19 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 set mouse=a
+set textwidth=80
+"set formatoptions-=t
 filetype plugin indent on
 filetype on
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50
+
+"augroup vimrc_autocmds
+	"autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+	"autocmd BufEnter * match OverLength /\%81v.*/
+"augroup END
 
 call plug#begin('~/.vim/plugged')
 
@@ -79,8 +86,10 @@ nnoremap <C-f> :BLines<CR> " Find for line.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
+nmap <leader>w :w!<CR>
+nmap <leader>q :q<CR>
 nnoremap <leader>a ggVG " Select all.
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
+nnoremap j gj
+nnoremap k gk
