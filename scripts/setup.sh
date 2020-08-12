@@ -12,6 +12,7 @@ sudo apt install -y \
     krdc \
     libreoffice \
     vim \
+	vim-gtk \
     build-essential \
     speedcrunch \
     obs-studio \
