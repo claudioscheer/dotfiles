@@ -96,7 +96,7 @@ sudo dpkg -i slack.deb
 sudo apt -f install -y
 
 # Tor Browser
-wget https://www.torproject.org/dist/torbrowser/9.5/tor-browser-linux64-9.5_en-US.tar.xz -O tor.tar.xz
+wget https://www.torproject.org/dist/torbrowser/9.5.3/tor-browser-linux64-9.5.3_en-US.tar.xz -O tor.tar.xz
 tar xf tor.tar.xz
 sudo mv tor-browser_en-US /opt/tor-browser
 cd /opt/tor-browser
