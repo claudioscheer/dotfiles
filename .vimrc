@@ -1,4 +1,5 @@
 syntax on
+syntax enable
 
 " Settings.
 set undodir=~/.vim/undodir
@@ -12,13 +13,9 @@ set smartcase
 set encoding=utf-8
 set number
 set relativenumber
-syntax enable
 set autoindent
 set shiftwidth=4
 set tabstop=4
-set mouse=a
-"set textwidth=80
-"set formatoptions-=t
 filetype plugin indent on
 filetype on
 
@@ -28,11 +25,6 @@ set updatetime=50
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-"augroup vimrc_autocmds
-	"autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-	"autocmd BufEnter * match OverLength /\%81v.*/
-"augroup END
 
 call plug#begin('~/.vim/plugged')
 
@@ -71,18 +63,37 @@ Plug 'tpope/vim-repeat'
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 
+" https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+
+" https://github.com/sainnhe/gruvbox-material
+Plug 'sainnhe/gruvbox-material'
+
 call plug#end()
 
+" Configure gruvbox-material plugin.
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
+
+" Configure vimtex plugin.
 let g:tex_flavor='latex'
 
-" Style.
+" Configure vim-airline plugin.
 let g:airline#extensions#tabline#enabled=1
-"let g:airline_theme='deus'
+
+" Configure gruvbox plugin.
 let g:gruvbox_contrast_dark = 'hard'
+
+" Configure fzf.vim plugin.
+let $FZF_DEFAULT_OPTS='--reverse'
+
+" Change the style.
 colorscheme gruvbox
 set background=dark
-
-let $FZF_DEFAULT_OPTS='--reverse'
 
 " Keys mapping.
 let mapleader=" "
@@ -100,6 +111,7 @@ nnoremap <C-h> :tabprevious<CR>
 nnoremap j gj
 nnoremap k gk
 
+" Toggle between UPPER CASE, lower case and Title Case.
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
     let result = tolower(a:str)
