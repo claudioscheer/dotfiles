@@ -98,8 +98,8 @@ set background=dark
 " Keys mapping.
 let mapleader=" "
 let g:mapleader=" "
-nnoremap <C-p> :GFiles<CR> " Find for file.
-nnoremap <C-f> :BLines<CR> " Find for line.
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-f> :BLines<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
