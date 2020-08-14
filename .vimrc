@@ -17,6 +17,8 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 set scroll=16
+set autoread
+set noequalalways
 filetype plugin indent on
 filetype on
 
@@ -87,10 +89,19 @@ let g:tex_flavor='latex'
 let g:airline#extensions#tabline#enabled=1
 
 " Configure gruvbox plugin.
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark='hard'
 
 " Configure fzf.vim plugin.
 let $FZF_DEFAULT_OPTS='--reverse'
+
+" Configure netrw.
+let g:netrw_banner = 0
+let g:netrw_browse_split = 2
+let g:netrw_winsize = -32
+"augroup ProjectDrawer
+  "autocmd!
+  "autocmd VimEnter * :Vexplore
+"augroup END
 
 " Change the style.
 colorscheme gruvbox
@@ -111,6 +122,10 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 nnoremap j gj
 nnoremap k gk
+nnoremap + <C-W>+
+nnoremap - <C-W>-
+nnoremap <C-n> <C-W><
+nnoremap <C-m> <C-W>>
 
 " Toggle between UPPER CASE, lower case and Title Case.
 function! TwiddleCase(str)
