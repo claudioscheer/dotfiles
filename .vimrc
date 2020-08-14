@@ -19,6 +19,9 @@ set tabstop=4
 set scroll=16
 set autoread
 set noequalalways
+set wildmenu
+set splitbelow
+set splitright
 filetype plugin indent on
 filetype on
 
@@ -53,9 +56,6 @@ Plug 'tpope/vim-fugitive'
 
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
-
-" https://github.com/ycm-core/YouCompleteMe
-Plug 'ycm-core/YouCompleteMe'
 
 " https://github.com/lervag/vimtex
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
