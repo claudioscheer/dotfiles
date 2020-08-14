@@ -72,10 +72,29 @@ Plug 'sheerun/vim-polyglot'
 " https://github.com/sainnhe/gruvbox-material
 Plug 'sainnhe/gruvbox-material'
 
+" https://github.com/fatih/vim-go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
+" Configure vim-polyglot for go.
+let g:go_highlight_build_constraints=1
+let g:go_highlight_extra_types=1
+let g:go_highlight_fields=1
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_operators=1
+let g:go_highlight_structs=1
+let g:go_highlight_types=1
+let g:go_highlight_function_parameters=1
+let g:go_highlight_function_calls=1
+let g:go_highlight_generate_tags=1
+let g:go_highlight_format_strings=1
+let g:go_highlight_variable_declarations=1
+let g:go_auto_sameids=1
+
 " Configure gruvbox-material plugin.
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark='hard'
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -95,9 +114,9 @@ let g:gruvbox_contrast_dark='hard'
 let $FZF_DEFAULT_OPTS='--reverse'
 
 " Configure netrw.
-let g:netrw_banner = 0
-let g:netrw_browse_split = 2
-let g:netrw_winsize = -32
+let g:netrw_banner=0
+let g:netrw_browse_split=2
+let g:netrw_winsize=-32
 "augroup ProjectDrawer
   "autocmd!
   "autocmd VimEnter * :Vexplore
@@ -139,3 +158,10 @@ function! TwiddleCase(str)
   return result
 endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
+" Open Vim GUI maximized.
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=999 columns=999
+endif
