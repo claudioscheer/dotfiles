@@ -36,6 +36,12 @@ set ttymouse=
 " delays and poor user experience.
 set updatetime=50
 
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -57,9 +63,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " https://github.com/preservim/nerdcommenter
 Plug 'preservim/nerdcommenter'
-
-" https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'
 
 " https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
