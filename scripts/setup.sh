@@ -190,7 +190,7 @@ cp .vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab" -c q -c q
+vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets" -c q -c q
 vim -c ":PlugInstall" -c q -c q
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --all
