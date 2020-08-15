@@ -19,7 +19,6 @@ set expandtab
 set tabstop=4
 set scroll=16
 set autoread
-set noequalalways
 set wildmenu
 set splitbelow
 set splitright
@@ -127,10 +126,8 @@ let $FZF_DEFAULT_OPTS='--reverse'
 let g:netrw_banner=0
 let g:netrw_browse_split=2
 let g:netrw_winsize=-32
-"augroup ProjectDrawer
-  "autocmd!
-  "autocmd VimEnter * :Vexplore
-"augroup END
+let g:netrw_browse_split=4
+let g:netrw_altv=1
 
 " Change the style.
 colorscheme gruvbox
@@ -158,14 +155,14 @@ nnoremap <C-m> <C-W>>
 
 " Toggle between UPPER CASE, lower case and Title Case.
 function! TwiddleCase(str)
-  if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
-  elseif a:str ==# tolower(a:str)
-    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
-  else
-    let result = toupper(a:str)
-  endif
-  return result
+    if a:str ==# toupper(a:str)
+        let result = tolower(a:str)
+    elseif a:str ==# tolower(a:str)
+        let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+    else
+        let result = toupper(a:str)
+    endif
+    return result
 endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
