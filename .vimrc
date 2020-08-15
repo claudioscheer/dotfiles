@@ -24,6 +24,7 @@ set splitbelow
 set splitright
 set termguicolors
 set scrolloff=16 
+set incsearch
 filetype plugin indent on
 filetype on
 
@@ -83,6 +84,9 @@ Plug 'sainnhe/gruvbox-material'
 
 " https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" https://github.com/mbbill/undotree
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -167,7 +171,15 @@ endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Use <C-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+
+au FocusGained,BufEnter * :checktime

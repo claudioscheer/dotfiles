@@ -192,8 +192,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs" -c q -c q
 vim -c ":PlugInstall" -c q -c q
-cd ~/.vim/plugged/YouCompleteMe
-./install.py --all
+mkdir ~/.vim/undodir -p
 # setxkbmap -option caps:swapescape # Switch Caps and Esc.
 
 # # Miniconda
