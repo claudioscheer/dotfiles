@@ -175,7 +175,6 @@ sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 
 # Copy files
 cd ..
-cp .gnupg/ ~/gnupg
 cp .gitconfig ~
 cp .local/share/applications/pgmodeler.desktop ~/.local/share/applications
 cp .local/share/applications/postman.desktop ~/.local/share/applications
