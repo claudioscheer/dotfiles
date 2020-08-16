@@ -12,7 +12,7 @@ sudo apt install -y \
     krdc \
     libreoffice \
     vim \
-	vim-gtk \
+    vim-gtk \
     build-essential \
     speedcrunch \
     obs-studio \
@@ -191,8 +191,8 @@ cp .vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs" -c q -c q
 vim -c ":PlugInstall" -c q -c q
+vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs" -c q -c q
 mkdir ~/.vim/undodir -p
 # setxkbmap -option caps:swapescape # Switch Caps and Esc.
 
