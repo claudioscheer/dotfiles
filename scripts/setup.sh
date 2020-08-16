@@ -11,8 +11,7 @@ sudo apt install -y \
     uget \
     krdc \
     libreoffice \
-    vim \
-    vim-gtk \
+    neovim \
     build-essential \
     speedcrunch \
     obs-studio \
@@ -186,11 +185,10 @@ cat .bashrc >> ~/.bashrc
 source ~/.bashrc
 cd -
 
-# Configure Vim
-cp .vimrc ~
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+# Configure Neovim
+cp .config ~
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 vim -c ":PlugInstall" -c q -c q
 vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs" -c q -c q
 mkdir ~/.vim/undodir -p
