@@ -20,11 +20,14 @@ set tabstop=4
 set scroll=16
 set autoread
 set wildmenu
+set wildmode=longest,list
 set splitbelow
 set splitright
 set termguicolors
 set scrolloff=16 
 set incsearch
+set noerrorbells
+set shortmess=I
 filetype plugin indent on
 filetype on
 
@@ -36,7 +39,7 @@ set mouse=
 set updatetime=50
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -149,12 +152,16 @@ nmap <leader>q :q<CR>
 nnoremap <leader>a ggVG
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
-nnoremap j gj
-nnoremap k gk
-nnoremap + <C-W>+
-nnoremap - <C-W>-
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> 0 g0
+nnoremap <silent> $ g$
+nnoremap <silent> + <C-W>+
+nnoremap <silent> - <C-W>-
 nnoremap <C-n> <C-W><
 nnoremap <C-m> <C-W>>
+nmap <leader>ii gg=G
+nnoremap <leader><CR> :terminal<CR>
 
 " Use <C-space> for trigger completion.
 inoremap <silent><expr> <C-Space> coc#refresh()
