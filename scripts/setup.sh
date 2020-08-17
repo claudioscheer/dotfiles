@@ -21,7 +21,6 @@ sudo apt install -y \
     mypaint \
     owncloud-client \
     caffeine \
-    guvcview \
     openvpn \
     openjdk-11-jdk \
     gnupg2 \
