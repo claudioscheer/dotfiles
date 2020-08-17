@@ -28,6 +28,8 @@ set scrolloff=16
 set incsearch
 set noerrorbells
 set shortmess=I
+set hidden
+
 filetype plugin indent on
 filetype on
 
@@ -90,6 +92,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " https://github.com/mbbill/undotree
 Plug 'mbbill/undotree'
 
+" https://github.com/Yggdroot/indentLine
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Configure vim-polyglot for go.
