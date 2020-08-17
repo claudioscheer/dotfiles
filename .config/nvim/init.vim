@@ -29,6 +29,7 @@ set incsearch
 set noerrorbells
 set shortmess=I
 set hidden
+set conceallevel=0
 
 filetype plugin indent on
 filetype on
@@ -160,10 +161,6 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> 0 g0
 nnoremap <silent> $ g$
-nnoremap <silent> + <C-W>+
-nnoremap <silent> - <C-W>-
-nnoremap <C-n> <C-W><
-nnoremap <C-m> <C-W>>
 nmap <leader>ii gg=G
 nnoremap <leader><CR> :terminal<CR>
 
@@ -178,6 +175,8 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+
+tnoremap <Esc> <C-\><C-n>
 
 " Toggle between UPPER CASE, lower case and Title Case.
 function! TwiddleCase(str)
