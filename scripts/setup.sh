@@ -189,7 +189,7 @@ cp .config ~
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 vim -c ":PlugInstall" -c q -c q
-vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs" -c q -c q
+vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs coc-markdownlint" -c q -c q
 mkdir ~/.vim/undodir -p
 # setxkbmap -option caps:swapescape # Switch Caps and Esc.
 
