@@ -95,6 +95,9 @@ Plug 'mbbill/undotree'
 
 " https://github.com/Yggdroot/indentLine
 Plug 'Yggdroot/indentLine'
+
+" https://github.com/glacambre/firenvim
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
 " Configure vim-polyglot for go.
