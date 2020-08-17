@@ -158,6 +158,11 @@ wget https://www.yworks.com/resources/yed/demo/yEd-3.20.zip -O yEd-3.20.zip
 unzip yEd-3.20.zip
 sudo mv yed-3.20/ /opt
 
+# Alacritty
+wget https://github.com/alacritty/alacritty/releases/download/v0.4.3/Alacritty-v0.4.3-ubuntu_18_04_amd64.deb -O alacritty.deb
+sudo dpkg -i alacritty.deb
+sudo apt -f install -y
+
 # adblock
 wget https://raw.githubusercontent.com/MattiSG/adblock/master/adblock -O adblock
 chmod +x adblock
