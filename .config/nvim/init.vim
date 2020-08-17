@@ -140,6 +140,8 @@ let g:netrw_winsize=-32
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 
+let g:vim_markdown_conceal=0
+
 " Change the style.
 colorscheme gruvbox
 set background=dark
@@ -147,6 +149,7 @@ set background=dark
 " Keys mapping.
 let mapleader=" "
 let g:mapleader=" "
+
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :BLines<CR>
 nmap <leader>gd <Plug>(coc-definition)
