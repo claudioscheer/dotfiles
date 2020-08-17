@@ -1,3 +1,4 @@
+asvetliakov.vscode-neovim
 golang.go
 James-Yu.latex-workshop
 mammothb.gnuplot
