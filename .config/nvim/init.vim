@@ -17,14 +17,13 @@ set autoindent
 set shiftwidth=4
 set expandtab
 set tabstop=4
-set scroll=16
 set autoread
 set wildmenu
 set wildmode=longest,list
 set splitbelow
 set splitright
 set termguicolors
-set scrolloff=16 
+set scrolloff=8 
 set incsearch
 set noerrorbells
 set shortmess=I
@@ -144,8 +143,8 @@ set background=dark
 let mapleader=" "
 let g:mapleader=" "
 
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>o :GFiles<CR>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>o :Files<CR>
 nnoremap <leader>i :BLines<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
