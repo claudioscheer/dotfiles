@@ -69,9 +69,6 @@ Plug 'vim-airline/vim-airline-themes'
 " https://github.com/preservim/nerdcommenter
 Plug 'preservim/nerdcommenter'
 
-" https://github.com/dense-analysis/ale
-Plug 'dense-analysis/ale'
-
 " https://github.com/lervag/vimtex
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 
@@ -87,14 +84,8 @@ Plug 'sheerun/vim-polyglot'
 " https://github.com/sainnhe/gruvbox-material
 Plug 'sainnhe/gruvbox-material'
 
-" https://github.com/fatih/vim-go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 " https://github.com/mbbill/undotree
 Plug 'mbbill/undotree'
-
-" https://github.com/Yggdroot/indentLine
-Plug 'Yggdroot/indentLine'
 
 " https://github.com/glacambre/firenvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -153,12 +144,15 @@ set background=dark
 let mapleader=" "
 let g:mapleader=" "
 
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-f> :BLines<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>o :GFiles<CR>
+nnoremap <leader>i :BLines<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>w :w!<CR>
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>q :q<CR>
 nnoremap <leader>a ggVG
 nnoremap <C-l> :tabnext<CR>
@@ -167,7 +161,6 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> 0 g0
 nnoremap <silent> $ g$
-nmap <leader>ii gg=G
 nnoremap <leader><CR> :terminal<CR>
 
 " Use <C-space> for trigger completion.
