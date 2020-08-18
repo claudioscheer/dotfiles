@@ -1,4 +1,4 @@
-# Apps installed on Android
+# Apps to install
 
 - [AntennaPod](https://f-droid.org/en/packages/de.danoeh.antennapod/)
 - [Blokada](https://f-droid.org/en/packages/org.blokada.alarm/)
