@@ -4,8 +4,6 @@ syntax enable
 " Settings.
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 " Maximum number of changes that can be undone.
-set undoreload=10000 " Maximum number lines to save for undo on a buffer reload.
 set noswapfile
 set nobackup
 set ignorecase
@@ -85,9 +83,6 @@ Plug 'sainnhe/gruvbox-material'
 
 " https://github.com/mbbill/undotree
 Plug 'mbbill/undotree'
-
-" https://github.com/glacambre/firenvim
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
 " Configure vim-polyglot for go.
@@ -149,17 +144,12 @@ nnoremap <leader>i :BLines<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
-nmap <leader>w :w!<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>q :q<CR>
-nnoremap <leader>a ggVG
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-nnoremap <silent> 0 g0
-nnoremap <silent> $ g$
+"nnoremap <silent> j gj
+"nnoremap <silent> k gk
+"nnoremap <silent> 0 g0
+"nnoremap <silent> $ g$
 nnoremap <leader><CR> :terminal<CR>
 
 " Use <C-space> for trigger completion.
