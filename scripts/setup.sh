@@ -176,7 +176,7 @@ sudo apt autoremove -y
 
 # Create symlinks
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
-
+n
 # Copy files
 cd ..
 cp .gitconfig ~
@@ -195,7 +195,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 vim -c ":PlugInstall" -c q -c q
 vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs coc-markdownlint" -c q -c q
 mkdir ~/.vim/undodir -p
-# setxkbmap -option caps:swapescape # Switch Caps and Esc.
 
 # # Miniconda
 # wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
