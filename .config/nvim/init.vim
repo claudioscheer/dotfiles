@@ -27,6 +27,7 @@ set noerrorbells
 set shortmess=I
 set hidden
 set conceallevel=0
+set spell spelllang=en_us
 
 filetype plugin indent on
 filetype on
@@ -119,6 +120,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:gruvbox_contrast_dark='hard'
 
 " Configure fzf.vim plugin.
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 
 " Configure netrw.
@@ -141,13 +143,14 @@ let g:mapleader=" "
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>i :BLines<CR>
+nmap <leader>w :w<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-"nnoremap <silent> j gj
-"nnoremap <silent> k gk
+vmap <leader>ff <Plug>(coc-format)
+nmap <leader>ff <Plug>(coc-format)
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 "nnoremap <silent> 0 g0
 "nnoremap <silent> $ g$
 nnoremap <leader><CR> :terminal<CR>
