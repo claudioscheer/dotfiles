@@ -169,6 +169,11 @@ chmod +x adblock
 sudo mv adblock /usr/local/bin/
 sudo adblock on
 
+# TexLab
+wget https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz -O texlab.tar.gz
+tar -zxvf texlab.tar.gz
+sudo mv texlab /usr/local/bin
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
@@ -193,7 +198,6 @@ cp .config ~
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 vim -c ":PlugInstall" -c q -c q
-vim -c ":CocInstall -sync coc-json coc-python coc-go coc-sh coc-tsserver coc-yaml coc-clangd coc-texlab coc-snippets coc-pairs coc-markdownlint" -c q -c q
 mkdir ~/.vim/undodir -p
 
 # # Miniconda
