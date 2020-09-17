@@ -65,11 +65,6 @@ wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
 tar -zxvf postman.tar.gz
 sudo mv Postman /opt/
 
-# Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update && sudo apt install spotify-client -y
-
 # Node.js v12.x
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt install -y nodejs

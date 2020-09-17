@@ -1,3 +1,4 @@
+syntax on
 syntax enable
 filetype plugin indent on
 filetype on
@@ -12,11 +13,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'nvim-lua/completion-nvim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
-
+Plug 'steelsojka/completion-buffers'
 Plug 'neovim/nvim-lsp'
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 " Settings.
@@ -73,6 +77,13 @@ let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 set background=dark
 
+" Configure netrw.
+let g:netrw_banner=0
+let g:netrw_browse_split=2
+let g:netrw_winsize=-32
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+
 " Configure vimtex plugin.
 let g:tex_flavor='latex'
 
@@ -107,6 +118,7 @@ nnoremap <silent> 1gD <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Configure completion.
 function! s:check_back_space() abort
@@ -118,9 +130,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 set completeopt=menuone,noinsert,noselect
 " Open completion when pressing TAB.
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ completion#trigger_completion()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ completion#trigger_completion()
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -145,14 +157,33 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Configure nvim-lsp.
 lua << END
-local nvim_lsp = require'nvim_lsp'
 local util = require 'nvim_lsp/util'
 
-nvim_lsp.clangd.setup{}
-nvim_lsp.pyls.setup{}
-nvim_lsp.gopls.setup{}
-nvim_lsp.texlab.setup{}
+require'nvim_lsp'.clangd.setup{}
+require'nvim_lsp'.pyls.setup{}
+require'nvim_lsp'.gopls.setup{}
+require'nvim_lsp'.texlab.setup{}
+require'nvim_lsp'.jsonls.setup{}
+require'nvim_lsp'.jdtls.setup{}
+require'nvim_lsp'.yamlls.setup{}
+require'nvim_lsp'.tsserver.setup{}
 END
+
+let g:completion_chain_complete_list = [
+            \{'complete_items': ['lsp', 'buffers']},
+            \{'mode': '<c-p>'},
+            \{'mode': '<c-n>'}
+            \]
+
+" Configure neoformat.
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 1
+let g:neoformat_basic_format_trim = 1
+
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_python = ['black']
+
+nnoremap <leader>f :Neoformat<CR>
 
 au FocusGained,BufEnter * :checktime
 autocmd BufEnter * lua require'completion'.on_attach()
