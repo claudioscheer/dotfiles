@@ -42,7 +42,7 @@ set wildmenu
 set wildmode=longest,list
 set splitbelow
 set splitright
-set scrolloff=8 
+set scrolloff=8
 set incsearch
 set noerrorbells
 set shortmess=I
@@ -103,7 +103,7 @@ let g:mapleader=" "
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>i :BLines<CR>
-nmap <leader>w :w<CR>
+nmap <leader>w :wa<CR>
 nmap <leader>q :q<CR>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -174,6 +174,8 @@ let g:completion_chain_complete_list = [
             \{'mode': '<c-p>'},
             \{'mode': '<c-n>'}
             \]
+" let g:completion_matching_ignore_case = 1
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Configure neoformat.
 let g:neoformat_basic_format_align = 1
@@ -181,6 +183,8 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
 let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_jsx = ['prettier']
 let g:neoformat_enabled_python = ['black']
 
 nnoremap <leader>f :Neoformat<CR>
