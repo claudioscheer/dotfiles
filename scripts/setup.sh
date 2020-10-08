@@ -41,16 +41,19 @@ sudo apt install -y \
     cmake \
     python3-dev
 
+# Neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable
+
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 sudo apt update
 sudo apt install syncthing -y
 
-# VSCode
-wget https://az764295.vo.msecnd.net/stable/cd9ea6488829f560dc949a8b2fb789f3cdc05f5d/code_1.46.1-1592428892_amd64.deb -O code.deb
-sudo dpkg -i code.deb
-sudo apt -f install -y
+# # VSCode
+# wget https://az764295.vo.msecnd.net/stable/cd9ea6488829f560dc949a8b2fb789f3cdc05f5d/code_1.46.1-1592428892_amd64.deb -O code.deb
+# sudo dpkg -i code.deb
+# sudo apt -f install -y
 
 # DBeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O dbeaver.deb
@@ -60,10 +63,10 @@ sudo apt -f install -y
 # pgModeler
 sudo apt install pgmodeler -y
 
-# Postman
-wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
-tar -zxvf postman.tar.gz
-sudo mv Postman /opt/
+# # Postman
+# wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+# tar -zxvf postman.tar.gz
+# sudo mv Postman /opt/
 
 # Node.js v12.x
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -153,10 +156,10 @@ wget https://www.yworks.com/resources/yed/demo/yEd-3.20.zip -O yEd-3.20.zip
 unzip yEd-3.20.zip
 sudo mv yed-3.20/ /opt
 
-# Alacritty
-wget https://github.com/alacritty/alacritty/releases/download/v0.4.3/Alacritty-v0.4.3-ubuntu_18_04_amd64.deb -O alacritty.deb
-sudo dpkg -i alacritty.deb
-sudo apt -f install -y
+# # Alacritty
+# wget https://github.com/alacritty/alacritty/releases/download/v0.4.3/Alacritty-v0.4.3-ubuntu_18_04_amd64.deb -O alacritty.deb
+# sudo dpkg -i alacritty.deb
+# sudo apt -f install -y
 
 # adblock
 wget https://raw.githubusercontent.com/MattiSG/adblock/master/adblock -O adblock
@@ -176,7 +179,7 @@ sudo apt autoremove -y
 
 # Create symlinks
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
-n
+
 # Copy files
 cd ..
 cp .gitconfig ~
@@ -189,7 +192,7 @@ source ~/.bashrc
 cd -
 
 # Configure Neovim
-cp .config ~
+cp -r ../.config ~
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 vim -c ":PlugInstall" -c q -c q

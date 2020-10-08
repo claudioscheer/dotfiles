@@ -21,6 +21,7 @@ Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " Settings.
@@ -139,6 +140,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>f :Neoformat<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -187,7 +189,12 @@ let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsx = ['prettier']
 let g:neoformat_enabled_python = ['black']
 
-nnoremap <leader>f :Neoformat<CR>
+" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
 
 au FocusGained,BufEnter * :checktime
 autocmd BufEnter * lua require'completion'.on_attach()
