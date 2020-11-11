@@ -15,7 +15,7 @@ Plug 'mbbill/undotree'
 Plug 'nvim-lua/completion-nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
-Plug 'steelsojka/completion-buffers'
+" Plug 'steelsojka/completion-buffers'
 Plug 'neovim/nvim-lsp'
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 Plug 'pangloss/vim-javascript'
@@ -41,8 +41,6 @@ set tabstop=4
 set autoread
 set wildmenu
 set wildmode=longest,list
-set splitbelow
-set splitright
 set scrolloff=8
 set incsearch
 set noerrorbells
@@ -51,6 +49,7 @@ set hidden
 set termguicolors
 set conceallevel=0
 set spell spelllang=en_us
+set ttimeoutlen=100
 
 " Disable mouse.
 set mouse=
@@ -121,6 +120,15 @@ nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>f :Neoformat<CR>
+
+tnoremap <Esc> <C-\><C-n>
+
 " Configure completion.
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -134,15 +142,6 @@ inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
             \ completion#trigger_completion()
-
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>f :Neoformat<CR>
-
-tnoremap <Esc> <C-\><C-n>
 
 " Toggle between UPPER CASE, lower case and Title Case.
 function! TwiddleCase(str)
@@ -172,21 +171,21 @@ require'nvim_lsp'.tsserver.setup{}
 END
 
 let g:completion_chain_complete_list = [
-            \{'complete_items': ['lsp', 'buffers']},
+            \{'complete_items': ['lsp']},
             \{'mode': '<c-p>'},
             \{'mode': '<c-n>'}
             \]
-" let g:completion_matching_ignore_case = 1
+let g:completion_matching_ignore_case = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Configure neoformat.
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
-
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsx = ['prettier']
+let g:neoformat_enabled_java = ['clangformat']
 let g:neoformat_enabled_python = ['black']
 
 " vim-cpp-enhanced-highlight
@@ -198,3 +197,9 @@ let g:cpp_experimental_template_highlight = 1
 
 au FocusGained,BufEnter * :checktime
 autocmd BufEnter * lua require'completion'.on_attach()
+
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l* lwindow
+augroup END

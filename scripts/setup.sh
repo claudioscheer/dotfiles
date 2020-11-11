@@ -32,7 +32,6 @@ sudo apt install -y \
     bat \
     gnuplot \
     rename \
-    virt-manager \
     golang \
     mariadb-client \
     postgresql-client \
@@ -92,13 +91,13 @@ wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.3-amd64.d
 sudo dpkg -i slack.deb
 sudo apt -f install -y
 
-# Tor Browser
-wget https://www.torproject.org/dist/torbrowser/9.5.3/tor-browser-linux64-9.5.3_en-US.tar.xz -O tor.tar.xz
-tar xf tor.tar.xz
-sudo mv tor-browser_en-US /opt/tor-browser
-cd /opt/tor-browser
-./start-tor-browser.desktop --register-app
-cd -
+# # Tor Browser
+# wget https://dist.torproject.org/torbrowser/10.0/tor-browser-linux64-10.0_en-US.tar.xz -O tor.tar.xz
+# tar xf tor.tar.xz
+# sudo mv tor-browser_en-US /opt/tor-browser
+# cd /opt/tor-browser
+# ./start-tor-browser.desktop --register-app
+# cd -
 
 # Typora
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -107,7 +106,7 @@ sudo apt-get update
 sudo apt-get install typora -y
 
 # Zotero
-wget https://download.zotero.org/client/release/5.0.85/Zotero-5.0.85_linux-x86_64.tar.bz2 -O zotero.tar.bz2
+wget https://download.zotero.org/client/release/5.0.89/Zotero-5.0.89_linux-x86_64.tar.bz2 -O zotero.tar.bz2
 tar -xvjf zotero.tar.bz2
 sudo mv Zotero_linux-x86_64/ /opt/zotero
 /opt/zotero/set_launcher_icon
@@ -181,15 +180,13 @@ sudo apt autoremove -y
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
 
 # Copy files
-cd ..
-cp .gitconfig ~
-cp .local/share/applications/pgmodeler.desktop ~/.local/share/applications
-cp .local/share/applications/postman.desktop ~/.local/share/applications
-cp .local/share/applications/android-studio.desktop ~/.local/share/applications
+cp ../.gitconfig ~
+cp ../.local/share/applications/pgmodeler.desktop ~/.local/share/applications
+cp ../.local/share/applications/postman.desktop ~/.local/share/applications
+cp ../.local/share/applications/android-studio.desktop ~/.local/share/applications
 echo >> ~/.bashrc
-cat .bashrc >> ~/.bashrc
+cat ../.bashrc >> ~/.bashrc
 source ~/.bashrc
-cd -
 
 # Configure Neovim
 cp -r ../.config ~
