@@ -16,12 +16,13 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 " Plug 'steelsojka/completion-buffers'
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ActivityWatch/aw-watcher-vim'
 call plug#end()
 
 " Settings.
@@ -158,16 +159,25 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Configure nvim-lsp.
 lua << END
-local util = require 'nvim_lsp/util'
-
-require'nvim_lsp'.clangd.setup{}
-require'nvim_lsp'.pyls.setup{}
-require'nvim_lsp'.gopls.setup{}
-require'nvim_lsp'.texlab.setup{}
-require'nvim_lsp'.jsonls.setup{}
-require'nvim_lsp'.jdtls.setup{}
-require'nvim_lsp'.yamlls.setup{}
-require'nvim_lsp'.tsserver.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyls.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.texlab.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.jdtls.setup{}
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.gopls.setup {
+cmd = {"gopls", "serve"},
+settings = {
+gopls = {
+analyses = {
+unusedparams = true,
+},
+staticcheck = true,
+},
+},
+}
 END
 
 let g:completion_chain_complete_list = [
@@ -194,6 +204,28 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
+
+lua <<EOF
+function goimports(timeoutms)
+    local context = { source = { organizeImports = true } }
+    vim.validate { context = { context, "t", true } }
+
+    local params = vim.lsp.util.make_range_params()
+    params.context = context
+
+    local method = "textDocument/codeAction"
+    local resp = vim.lsp.buf_request_sync(0, method, params, timeoutms)
+    if resp and resp[1] then
+        local result = resp[1].result
+        if result and result[1] then
+            local edit = result[1].edit
+            vim.lsp.util.apply_workspace_edit(edit)
+        end
+    end
+
+    vim.lsp.buf.formatting()
+end
+EOF
 
 au FocusGained,BufEnter * :checktime
 autocmd BufEnter * lua require'completion'.on_attach()
