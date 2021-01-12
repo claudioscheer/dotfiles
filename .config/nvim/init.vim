@@ -51,6 +51,9 @@ set termguicolors
 set conceallevel=0
 set spell spelllang=en_us
 set ttimeoutlen=100
+set nohlsearch
+set guicursor=
+set signcolumn=yes
 
 " Disable mouse.
 set mouse=
@@ -129,6 +132,9 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>f :Neoformat<CR>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -237,3 +243,14 @@ augroup quickfix
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
 augroup END
+
+fun! TrimWhiteSpace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup trimwhitespace
+    autocmd!
+    autocmd BufWritePre * :call TrimWhiteSpace()
+augroup end
