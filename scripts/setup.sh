@@ -17,6 +17,7 @@ sudo apt install -y \
     owncloud-client \
     openvpn \
     openjdk-11-jdk \
+    maven \
     pdf-presenter-console \
     ffmpeg \
     audacity \
