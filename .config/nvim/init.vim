@@ -23,7 +23,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ActivityWatch/aw-watcher-vim'
-Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
 " Settings.
@@ -127,15 +126,6 @@ nnoremap <silent> g0 <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 
-" Java LSP
-nnoremap <A-CR> <cmd>lua require('jdtls').code_action()<CR>
-vnoremap <A-CR> <Esc><cmd>lua require('jdtls').code_action(true)<CR>
-nnoremap <leader>R <cmd>lua require('jdtls').code_action(false, 'refactor')<CR>
-nnoremap <A-o> <cmd>lua require'jdtls'.organize_imports()<CR>
-nnoremap crv <cmd>lua require('jdtls').extract_variable()<CR>
-vnoremap crv <Esc><cmd>lua require('jdtls').extract_variable(true)<CR>
-vnoremap crm <Esc><cmd>lua require('jdtls').extract_method(true)<CR>
-
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -179,10 +169,8 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 lua << END
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.pyls.setup{}
-require'lspconfig'.gopls.setup{}
 require'lspconfig'.texlab.setup{}
 require'lspconfig'.jsonls.setup{}
-require'lspconfig'.jdtls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.gopls.setup {
@@ -263,9 +251,4 @@ endfun
 augroup trimwhitespace
     autocmd!
     autocmd BufWritePre * :call TrimWhiteSpace()
-augroup end
-
-augroup java_lsp
-    au!
-    au FileType java lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})
 augroup end
