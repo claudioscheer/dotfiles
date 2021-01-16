@@ -11,4 +11,4 @@ npm install -g vscode-json-languageserver
 npm install -g yaml-language-server
 
 # JavaScript
-npm install -g typescript typescript-language-server
+npm install -g typescript typescript-language-server prettier
