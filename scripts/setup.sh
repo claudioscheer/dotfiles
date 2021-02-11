@@ -36,6 +36,11 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt install neovim -y
 sudo ln -s /usr/bin/nvim /usr/bin/vim
 
+# Alacritty
+sudo add-apt-repository ppa:mmstick76/alacritty -y
+sudo apt-get update
+sudo apt install alacritty -y
+
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
