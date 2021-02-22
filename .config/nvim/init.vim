@@ -22,7 +22,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'ActivityWatch/aw-watcher-vim'
 call plug#end()
 
 " Settings.
@@ -168,7 +167,7 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 " Configure nvim-lsp.
 lua << END
 require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyls.setup{}
+require'lspconfig'.jedi_language_server.setup{}
 require'lspconfig'.texlab.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.yamlls.setup{}
@@ -242,13 +241,13 @@ augroup quickfix
     autocmd QuickFixCmdPost l* lwindow
 augroup END
 
-fun! TrimWhiteSpace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
+" fun! TrimWhiteSpace()
+"     let l:save = winsaveview()
+"     keeppatterns %s/\s\+$//e
+"     call winrestview(l:save)
+" endfun
 
-augroup trimwhitespace
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-augroup end
+" augroup trimwhitespace
+"     autocmd!
+"     autocmd BufWritePre * :call TrimWhiteSpace()
+" augroup end

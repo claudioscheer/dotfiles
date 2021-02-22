@@ -3,6 +3,7 @@
 # Python
 pip install 'python-language-server[all]'
 pip install black
+pip install jedi-language-server
 
 # JSON
 npm install -g vscode-json-languageserver
