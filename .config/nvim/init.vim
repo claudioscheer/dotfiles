@@ -4,8 +4,10 @@ filetype plugin indent on
 filetype on
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -95,19 +97,12 @@ let g:Tex_GotoError=0
 " Configure vim-airline plugin.
 let g:airline#extensions#tabline#enabled=1
 
-" Configure fzf.vim plugin.
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
-
 let g:vim_markdown_conceal=0
 
 " Keys mapping.
 let mapleader=" "
 let g:mapleader=" "
 
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>o :Files<CR>
-nnoremap <leader>i :BLines<CR>
 nmap <leader>w :wa<CR>
 nmap <leader>q :q<CR>
 nnoremap <silent> j gj
@@ -131,6 +126,12 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>f :Neoformat<CR>
+
+" Configure telescope.vim plugin.
+nnoremap <leader>pf :Telescope find_files<CR>
+nnoremap <leader>pg :Telescope live_grep<CR>
+nnoremap <leader>pb :Telescope buffers<CR>
+nnoremap <leader>ph :Telescope help_tags<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -172,6 +173,7 @@ require'lspconfig'.texlab.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.flow.setup{}
 require'lspconfig'.gopls.setup {
 cmd = {"gopls", "serve"},
 settings = {
@@ -241,13 +243,13 @@ augroup quickfix
     autocmd QuickFixCmdPost l* lwindow
 augroup END
 
-" fun! TrimWhiteSpace()
-"     let l:save = winsaveview()
-"     keeppatterns %s/\s\+$//e
-"     call winrestview(l:save)
-" endfun
+fun! TrimWhiteSpace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-" augroup trimwhitespace
-"     autocmd!
-"     autocmd BufWritePre * :call TrimWhiteSpace()
-" augroup end
+augroup trimwhitespace
+    autocmd!
+    autocmd BufWritePre * :call TrimWhiteSpace()
+augroup end
