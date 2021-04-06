@@ -7,5 +7,3 @@
 	gpgsign = true
 [credential]
 	helper = store
-[http]
-	sslVerify = false
