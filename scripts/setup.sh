@@ -83,7 +83,7 @@ sudo dpkg -i slack.deb
 sudo apt -f install -y
 
 # Etcher
-wget https://github.com/balena-io/etcher/releases/download/v1.5.99/balena-etcher-electron_1.5.99_amd64.deb -O balena.deb
+wget https://github.com/balena-io/etcher/releases/download/v1.5.116/balena-etcher-electron_1.5.116_amd64.deb -O balena.deb
 sudo dpkg -i balena.deb
 sudo apt -f install -y
 
@@ -116,12 +116,12 @@ sudo ./aws/install
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
 
 # Rambox CE
-wget https://github.com/ramboxapp/community-edition/releases/download/0.7.5/Rambox-0.7.5-linux-amd64.deb -O rambox.deb
+wget https://github.com/ramboxapp/community-edition/releases/download/0.7.7/Rambox-0.7.7-linux-amd64.deb -O rambox.deb
 sudo dpkg -i rambox.deb
 sudo apt -f install -y
 
 # yEd
-wget https://www.yworks.com/resources/yed/demo/yEd-3.20.1_with-JRE14_64-bit_setup.sh -O yed.sh
+wget https://www.yworks.com/resources/yed/demo/yEd-3.21.1_with-JRE15_64-bit_setup.sh -O yed.sh
 chmod +x yed.sh
 ./yed.sh
 
@@ -132,7 +132,7 @@ sudo mv adblock /usr/local/bin/
 sudo adblock on
 
 # TexLab
-wget https://github.com/latex-lsp/texlab/releases/download/v2.2.0/texlab-x86_64-linux.tar.gz -O texlab.tar.gz
+wget https://github.com/latex-lsp/texlab/releases/download/v2.2.2/texlab-x86_64-linux.tar.gz -O texlab.tar.gz
 tar -zxvf texlab.tar.gz
 sudo mv texlab /usr/local/bin
 
