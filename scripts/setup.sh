@@ -142,6 +142,11 @@ unzip activitywatch.zip
 sudo mv activitywatch /opt/activitywatch
 sudo ln -s /opt/activitywatch/aw-qt.desktop ~/.local/share/applications/aw-qt.desktop
 
+# Teams
+wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.7556_amd64.deb -O teams.deb
+sudo dpkg -i teams.deb
+sudo apt -f install -y
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
