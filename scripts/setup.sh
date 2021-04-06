@@ -47,21 +47,21 @@ echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sourc
 sudo apt update
 sudo apt install syncthing -y
 
-# DBeaver
-wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O dbeaver.deb
-sudo dpkg -i dbeaver.deb
-sudo apt -f install -y
+## DBeaver
+#wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O dbeaver.deb
+#sudo dpkg -i dbeaver.deb
+#sudo apt -f install -y
 
-# pgModeler
-sudo apt install pgmodeler -y
+## pgModeler
+#sudo apt install pgmodeler -y
 
-# Postman
-wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
-tar -zxvf postman.tar.gz
-sudo mv Postman /opt/
+## Postman
+#wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+#tar -zxvf postman.tar.gz
+#sudo mv Postman /opt/
 
 # Node.js v12.x
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
