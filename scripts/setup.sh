@@ -147,6 +147,11 @@ wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.0
 sudo dpkg -i teams.deb
 sudo apt -f install -y
 
+# Zoom
+wget https://cdn.zoom.us/prod/5.6.13632.0328/zoom_amd64.deb -O zoom.deb
+sudo dpkg -i zoom.deb
+sudo apt -f install -y
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
