@@ -29,7 +29,11 @@ sudo apt install -y \
     clang-format \
     cmake \
     python3-dev \
-    tmux
+    tmux \
+    iotop \
+    sysstat \
+    procps \
+    coreutils
 
 # Neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -141,11 +145,6 @@ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.10.0/ac
 unzip activitywatch.zip
 sudo mv activitywatch /opt/activitywatch
 sudo ln -s /opt/activitywatch/aw-qt.desktop ~/.local/share/applications/aw-qt.desktop
-
-# Teams
-wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.7556_amd64.deb -O teams.deb
-sudo dpkg -i teams.deb
-sudo apt -f install -y
 
 # Zoom
 wget https://cdn.zoom.us/prod/5.6.13632.0328/zoom_amd64.deb -O zoom.deb
