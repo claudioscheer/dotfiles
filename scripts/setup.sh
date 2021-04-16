@@ -151,6 +151,11 @@ wget https://cdn.zoom.us/prod/5.6.13632.0328/zoom_amd64.deb -O zoom.deb
 sudo dpkg -i zoom.deb
 sudo apt -f install -y
 
+# JetBrains Mono font
+wget https://download-cf.jetbrains.com/fonts/JetBrainsMono-2.225.zip -O JetBrainsMono.zip
+unzip JetBrainsMono.zip
+sudo mv fonts/ttf/ /usr/local/share/fonts/jetbrains-mono
+
 # Final upgrade
 sudo apt update
 sudo apt upgrade -y
