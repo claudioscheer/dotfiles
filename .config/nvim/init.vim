@@ -17,13 +17,14 @@ Plug 'mbbill/undotree'
 Plug 'nvim-lua/completion-nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
-" Plug 'steelsojka/completion-buffers'
+Plug 'steelsojka/completion-buffers'
 Plug 'neovim/nvim-lspconfig'
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 " Settings.
@@ -188,7 +189,7 @@ staticcheck = true,
 END
 
 let g:completion_chain_complete_list = [
-            \{'complete_items': ['lsp']},
+            \{'complete_items': ['lsp', 'buffers']},
             \{'mode': '<c-p>'},
             \{'mode': '<c-n>'}
             \]
