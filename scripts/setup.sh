@@ -33,7 +33,8 @@ sudo apt install -y \
     iotop \
     sysstat \
     procps \
-    coreutils
+    coreutils \
+    net-tools
 
 # Neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable
