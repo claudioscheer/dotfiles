@@ -117,9 +117,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
-# Joplin
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
-
 # Rambox CE
 wget https://github.com/ramboxapp/community-edition/releases/download/0.7.7/Rambox-0.7.7-linux-amd64.deb -O rambox.deb
 sudo dpkg -i rambox.deb
@@ -156,6 +153,11 @@ sudo apt -f install -y
 wget https://download-cf.jetbrains.com/fonts/JetBrainsMono-2.225.zip -O JetBrainsMono.zip
 unzip JetBrainsMono.zip
 sudo mv fonts/ttf/ /usr/local/share/fonts/jetbrains-mono
+
+# Nextcloud CLI
+sudo add-apt-repository ppa:nextcloud-devs/client
+sudo apt-get update
+sudo apt install nextcloud-client
 
 # Final upgrade
 sudo apt update
