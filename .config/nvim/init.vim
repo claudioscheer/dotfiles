@@ -25,6 +25,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Settings.
@@ -127,6 +128,11 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>f :Neoformat<CR>
+
+" Configure vim-fugitive plugin.
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
 
 " Configure telescope.vim plugin.
 nnoremap <leader>pf :Telescope find_files<CR>
