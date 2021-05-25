@@ -34,7 +34,10 @@ sudo apt install -y \
     sysstat \
     procps \
     coreutils \
-    net-tools
+    net-tools \
+    linux-tools-common \
+    linux-tools-generic \
+    linux-tools-`uname -r`
 
 # Neovim
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -83,7 +86,7 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 sudo apt update && sudo apt install signal-desktop -y
 
 # Slack
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.3-amd64.deb -O slack.deb
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb -O slack.deb
 sudo dpkg -i slack.deb
 sudo apt -f install -y
 

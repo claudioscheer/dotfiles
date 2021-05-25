@@ -4,10 +4,9 @@ filetype plugin indent on
 filetype on
 
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -18,7 +17,6 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'steelsojka/completion-buffers'
-Plug 'neovim/nvim-lspconfig'
 Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -135,10 +133,10 @@ nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 
 " Configure telescope.vim plugin.
-nnoremap <leader>pf :Telescope find_files<CR>
-nnoremap <leader>pg :Telescope live_grep<CR>
-nnoremap <leader>pb :Telescope buffers<CR>
-nnoremap <leader>ph :Telescope help_tags<CR>
+nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>pg :Files<CR>
+nnoremap <leader>pb :BLines<CR>
+nnoremap <leader>pn :Buffers<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -182,16 +180,16 @@ require'lspconfig'.yamlls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.flow.setup{}
 require'lspconfig'.gopls.setup {
-cmd = {"gopls", "serve"},
-settings = {
-gopls = {
-analyses = {
-unusedparams = true,
-},
-staticcheck = true,
-},
-},
-}
+    cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                },
+            staticcheck = true,
+            },
+        },
+    }
 END
 
 let g:completion_chain_complete_list = [
@@ -211,6 +209,7 @@ let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsx = ['prettier']
 let g:neoformat_enabled_java = ['clangformat']
 let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_go = ['gofmt']
 
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1

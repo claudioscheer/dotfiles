@@ -14,6 +14,8 @@ alias cd4="cd3 && cd .."
 alias xclip="xclip -sel clip"
 alias tb="nc termbin.com 9999"
 
+stty -ixon
+
 export GPG_TTY=$(tty)
 export CHROME_PATH=/usr/bin/brave-browser-stable
 # export ANDROID_HOME=$HOME/Android/Sdk
