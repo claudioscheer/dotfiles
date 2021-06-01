@@ -15,7 +15,7 @@ apt-get install -y apt-utils \
     zip \
     unzip
 
-pip3 install 'python-language-server[all]' black jedi-language-server
+pip3 install 'python-language-server[all]' black jedi-language-server jupyterlab
 
 curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 apt-get install -y nodejs
@@ -33,6 +33,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless -E +PlugInstall +qall
 mkdir ~/.vim/undodir -p
+
+wget https://raw.githubusercontent.com/claudioscheer/dotfiles/master/.tmux.conf -O ~/.tmux.conf
 
 curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
 unzip awscliv2.zip
