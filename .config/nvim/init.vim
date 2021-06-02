@@ -173,7 +173,7 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 " Configure nvim-lsp.
 lua << END
 require'lspconfig'.clangd.setup{}
-require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.pyls.setup{}
 require'lspconfig'.texlab.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.yamlls.setup{}
