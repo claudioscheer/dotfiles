@@ -5,6 +5,8 @@ apt-get install -y apt-utils \
     cmake \
     clangd \
     clang-format \
+    openjdk-11-jdk \
+    maven \
     build-essential \
     curl \
     software-properties-common \
@@ -39,6 +41,29 @@ wget https://raw.githubusercontent.com/claudioscheer/dotfiles/master/.tmux.conf 
 curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
 unzip awscliv2.zip
 ./aws/install
+
+cat >> ~/.bashrc<< EOF
+alias ga="git add"
+alias gl="git pull"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gpf!="git push --force"
+alias gsb="git status -sb"
+alias gc="git commit -S"
+alias gac="ga . && gc"
+
+alias cd2="cd ../.."
+alias cd3="cd2 && cd .."
+alias cd4="cd3 && cd .."
+
+alias xclip="xclip -sel clip"
+alias tb="nc termbin.com 9999"
+
+stty -ixon
+
+export EDITOR="nvim"
+export SYSTEMD_EDITOR="nvim"
+EOF
 
 # Clean build files.
 rm -rf requirements.sh awscliv2.zip aws
