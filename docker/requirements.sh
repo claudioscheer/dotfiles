@@ -15,7 +15,7 @@ apt-get install -y apt-utils \
     zip \
     unzip
 
-pip3 install 'python-language-server[all]' black jedi-language-server jupyterlab
+pip3 install 'python-language-server[all]' black jupyterlab
 
 curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 apt-get install -y nodejs
