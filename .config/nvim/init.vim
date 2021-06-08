@@ -91,6 +91,7 @@ let g:netrw_altv=1
 
 " Configure vimtex plugin.
 let g:tex_flavor='latex'
+let g:vimtex_view_general_viewer='okular'
 let g:vimtex_view_skim_activate=1
 let g:Tex_GotoError=0
 
