@@ -27,5 +27,5 @@ export CHROME_PATH=/usr/bin/brave-browser-stable
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export EDITOR="nvim"
 export SYSTEMD_EDITOR="nvim"
-export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.npm-global/bin:~/.local/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.1/targets/x86_64-linux/lib
