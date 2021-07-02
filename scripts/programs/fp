@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -it -p 8880:8880 --volume /tmp/.X11-unix:/tmp/.X11-unix --volume ${PWD}:/home --env DISPLAY=${DISPLAY} claudioscheer/programming tmux
