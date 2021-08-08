@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Python
-pip install 'python-language-server[all]'
+pip install 'python-lsp-server[all]'
 pip install black
 pip install jedi-language-server
 
