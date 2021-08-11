@@ -29,3 +29,7 @@ export EDITOR="nvim"
 export SYSTEMD_EDITOR="nvim"
 export PATH=~/.npm-global/bin:~/.local/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.1/targets/x86_64-linux/lib
+export GOROOT=$HOME/go
+export GOPATH=$HOME/go-workspace
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export GO111MODULE=on
