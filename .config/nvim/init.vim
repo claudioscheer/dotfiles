@@ -104,6 +104,7 @@ let g:vim_markdown_conceal=0
 let mapleader=" "
 let g:mapleader=" "
 
+nmap Y yy
 nmap <leader>w :wa<CR>
 nmap <leader>q :q<CR>
 nnoremap <silent> j gj
@@ -174,7 +175,7 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 " Configure nvim-lsp.
 lua << END
 require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyls.setup{}
+require'lspconfig'.pylsp.setup{}
 require'lspconfig'.texlab.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.yamlls.setup{}
@@ -211,6 +212,11 @@ let g:neoformat_enabled_jsx = ['prettier']
 let g:neoformat_enabled_java = ['clangformat']
 let g:neoformat_enabled_python = ['black']
 let g:neoformat_enabled_go = ['gofmt']
+let g:neoformat_python_black = {
+            \ 'exe': 'black',
+            \ 'args': ['--line-length 80', '-'],
+            \ 'stdin': 1,
+            \}
 
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
