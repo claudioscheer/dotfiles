@@ -17,13 +17,14 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'steelsojka/completion-buffers'
-Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex']}
+Plug 'lervag/vimtex', { 'for' : ['tex', 'latex', 'plaintex'] }
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sbdchd/neoformat'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Settings.
@@ -181,17 +182,9 @@ require'lspconfig'.jsonls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.flow.setup{}
-require'lspconfig'.gopls.setup {
-    cmd = {"gopls", "serve"},
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-                },
-            staticcheck = true,
-            },
-        },
-    }
+require'lspconfig'.gopls.setup{
+    cmd={'gopls','--remote=auto'},
+}
 END
 
 let g:completion_chain_complete_list = [
@@ -225,27 +218,27 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 
-lua <<EOF
-function goimports(timeoutms)
-    local context = { source = { organizeImports = true } }
-    vim.validate { context = { context, "t", true } }
+" lua <<EOF
+" function goimports(timeoutms)
+"     local context = { source = { organizeImports = true } }
+"     vim.validate { context = { context, "t", true } }
 
-    local params = vim.lsp.util.make_range_params()
-    params.context = context
+"     local params = vim.lsp.util.make_range_params()
+"     params.context = context
 
-    local method = "textDocument/codeAction"
-    local resp = vim.lsp.buf_request_sync(0, method, params, timeoutms)
-    if resp and resp[1] then
-        local result = resp[1].result
-        if result and result[1] then
-            local edit = result[1].edit
-            vim.lsp.util.apply_workspace_edit(edit)
-        end
-    end
+"     local method = "textDocument/codeAction"
+"     local resp = vim.lsp.buf_request_sync(0, method, params, timeoutms)
+"     if resp and resp[1] then
+"         local result = resp[1].result
+"         if result and result[1] then
+"             local edit = result[1].edit
+"             vim.lsp.util.apply_workspace_edit(edit)
+"         end
+"     end
 
-    vim.lsp.buf.formatting()
-end
-EOF
+"     vim.lsp.buf.formatting()
+" end
+" EOF
 
 au FocusGained,BufEnter * :checktime
 autocmd BufEnter * lua require'completion'.on_attach()
