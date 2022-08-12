@@ -1,87 +1,99 @@
-syntax on
-syntax enable
-filetype plugin indent on
-filetype on
-
 set undodir=~/.vim/undodir
 set undofile
 set noswapfile
 set nobackup
 set ignorecase
 set smartcase
-set encoding=utf-8
+set encoding=UTF-8
 set number
 set relativenumber
 set autoindent
-set shiftwidth=4
 set expandtab
-set tabstop=4
 set autoread
 set wildmenu
-set wildmode=longest,list
 set scrolloff=8
 set incsearch
 set noerrorbells
-set shortmess=I
 set hidden
-set termguicolors
-set conceallevel=0
-set spell spelllang=en_us
-set ttimeoutlen=100
-set nohlsearch
 set guicursor=
 set signcolumn=yes
-
-" Disable mouse.
-set mouse=
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
+set splitright
+set splitbelow
+set ttyfast
+set lazyredraw
+set completeopt=menu,menuone,noselect
+set timeout
+set timeoutlen=300
 set updatetime=50
-
-" Give more space for displaying messages.
-"set cmdheight=1
-
-" Don't pass messages to |ins-completion-menu|.
+set mouse=a
+set clipboard+=unnamedplus
 set shortmess+=c
+set cmdheight=1
+set tabstop=2
+set shiftwidth=0
+set wildignore+=*/node_modules/**,*/.git/**,*/__pycache__/
+filetype plugin indent on
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-" Configure netrw.
-let g:netrw_banner=0
-let g:netrw_browse_split=2
-let g:netrw_winsize=-32
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-
-" Keys mapping.
+" leader
 let mapleader=" "
-let g:mapleader=" "
 
-nmap Y yy
-nmap <leader>w :wa<CR>
-nmap <leader>q :q<CR>
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+" netrw
+let netrw_banner=0
+let netrw_browse_split=2
+" let netrw_winsize=-32
+let netrw_browse_split=4
+let netrw_altv=1
+let netrw_liststyle=3
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>f :Neoformat<CR>
+" in millisecond, used for both CursorHold and CursorHoldI,
+" use updatetime instead if not defined
+let g:cursorhold_updatetime = 100
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+" gruvbox
+colorscheme gruvbox-material
+set background=dark
 
-fun! TrimWhiteSpace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
+" Airline
+let g:airline_theme = 'gruvbox_material'
 
-augroup trimwhitespace
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-augroup end
+" packer
+lua plugins = require('plugins')
+
+" init language servers
+lua require('lsp')
+
+" init general stuffs
+lua require('general')
+
+" Configure Neoformat.
+let g:neoformat_try_node_exe=1
+let g:neoformat_enabled_python=['black']
+nnoremap <leader>fo <cmd>Neoformat<cr>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Auto reload file when it changed.
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+"autocmd Filetype css setlocal tabstop=4
+
+command! ExploreFind let @/=expand("%:t") | execute 'Vexplore' expand("%:h") | normal n
+
+nnoremap f <cmd>Fern . -drawer -reveal=%<cr>
+
+function! s:fern_settings() abort
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+endfunction
+
+augroup fern-settings
+  autocmd!
+  autocmd FileType fern call s:fern_settings()
+augroup END
