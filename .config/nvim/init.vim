@@ -1,3 +1,6 @@
+filetype plugin indent on
+syntax enable
+
 set undodir=~/.vim/undodir
 set undofile
 set noswapfile
@@ -32,18 +35,14 @@ set cmdheight=1
 set tabstop=2
 set shiftwidth=0
 set wildignore+=*/node_modules/**,*/.git/**,*/__pycache__/
-filetype plugin indent on
 
 " leader
 let mapleader=" "
+let maplocalleader=" "
 
-" netrw
-let netrw_banner=0
-let netrw_browse_split=2
-" let netrw_winsize=-32
-let netrw_browse_split=4
-let netrw_altv=1
-let netrw_liststyle=3
+" vimtex
+" let g:vimtex_compiler_method = 'lualatex'
+let g:tex_flavor = 'latex'
 
 " in millisecond, used for both CursorHold and CursorHoldI,
 " use updatetime instead if not defined
