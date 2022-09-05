@@ -30,4 +30,5 @@ return require('packer').startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
   use 'yuki-yano/fern-preview.vim'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'lervag/vimtex'
 end)
