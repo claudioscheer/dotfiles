@@ -73,7 +73,7 @@ require'nvim-treesitter.configs'.setup {
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -133,5 +133,28 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'buffer' },
+    { name = 'vsnip' },
   },
+}
+
+local previewers = require('telescope.previewers')
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+
+  filepath = vim.fn.expand(filepath)
+  vim.loop.fs_stat(filepath, function(_, stat)
+    if not stat then return end
+    if stat.size > 100000 then
+      return
+    else
+      previewers.buffer_previewer_maker(filepath, bufnr, opts)
+    end
+  end)
+end
+
+require('telescope').setup {
+  defaults = {
+    buffer_previewer_maker = new_maker
+  }
 }

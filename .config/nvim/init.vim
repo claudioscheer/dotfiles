@@ -36,6 +36,14 @@ set tabstop=2
 set shiftwidth=0
 set wildignore+=*/node_modules/**,*/.git/**,*/__pycache__/
 
+nmap Y yy
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+" vim-fugitive
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
+
 " leader
 let mapleader=" "
 let maplocalleader=" "
@@ -54,6 +62,9 @@ set background=dark
 
 " Airline
 let g:airline_theme = 'gruvbox_material'
+
+" fern.vim
+let g:fern#default_hidden=1
 
 " packer
 lua plugins = require('plugins')
@@ -74,6 +85,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope resume<cr>
 
 " Auto reload file when it changed.
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
@@ -83,7 +95,7 @@ autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. B
 
 command! ExploreFind let @/=expand("%:t") | execute 'Vexplore' expand("%:h") | normal n
 
-nnoremap f <cmd>Fern . -drawer -reveal=%<cr>
+nnoremap <C-f> <cmd>Fern . -drawer -reveal=%<cr>
 
 function! s:fern_settings() abort
   nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
