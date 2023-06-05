@@ -32,4 +32,5 @@ return require('packer').startup(function(use)
   use 'yuki-yano/fern-preview.vim'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'lervag/vimtex'
+  use 'github/copilot.vim'
 end)
