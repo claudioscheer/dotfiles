@@ -5,16 +5,14 @@ sudo apt install -y \
     wget \
     keepassxc \
     uget \
-    krdc \
     libreoffice \
     build-essential \
     speedcrunch \
     obs-studio \
     gimp \
-    pdfshuffler \
+    pdfarranger \
     ocrmypdf \
     mypaint \
-    owncloud-client \
     openvpn \
     openjdk-11-jdk \
     maven \
@@ -23,69 +21,65 @@ sudo apt install -y \
     audacity \
     htop \
     xclip \
-    gnuplot \
     rename \
-    clangd \
-    clang-format \
-    cmake \
-    python3-dev \
     tmux \
     iotop \
     sysstat \
     procps \
     coreutils \
     net-tools \
-    linux-tools-common \
-    linux-tools-generic \
-    linux-tools-`uname -r` \
     neovim \
     syncthing
 
-## DBeaver
-#wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O dbeaver.deb
-#sudo dpkg -i dbeaver.deb
-#sudo apt -f install -y
+# Neovim
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt full-upgrade -y
 
-## pgModeler
-#sudo apt install pgmodeler -y
+# zsh
+sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install python3-dev python3-pip python3-setuptools
+pip3 install thefuck --user
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 
-## Postman
-#wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
-#tar -zxvf postman.tar.gz
-#sudo mv Postman /opt/
+# Others
+sudo chown water:water /opt
 
-# Node.js v14.x
-curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt install -y nodejs
+# Brave
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
+
+# Postman
+wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+tar -zxvf postman.tar.gz
+mv Postman /opt/
+
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest
+
+# Node.js global
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 
-# Brave
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install brave-browser -y
-
 # Signal
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee /etc/apt/sources.list.d/signal-xenial.list
 sudo apt update && sudo apt install signal-desktop -y
 
 # Slack
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.14.0-amd64.deb -O slack.deb
+wget https://downloads.slack-edge.com/releases/linux/4.32.122/prod/x64/slack-desktop-4.32.122-amd64.deb -O slack.deb
 sudo dpkg -i slack.deb
 sudo apt -f install -y
-
-# Etcher
-wget https://github.com/balena-io/etcher/releases/download/v1.5.116/balena-etcher-electron_1.5.116_amd64.deb -O balena.deb
-sudo dpkg -i balena.deb
-sudo apt -f install -y
-
-# VirtualBox
-sudo apt install -y \
-    virtualbox \
-    virtualbox-guest-additions-iso \
-    virtualbox-ext-pack
 
 # Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -105,14 +99,15 @@ sudo usermod -aG docker $USER
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo dpkg -i session-manager-plugin.deb
 
-# yEd
-wget https://www.yworks.com/resources/yed/demo/yEd-3.21.1_with-JRE15_64-bit_setup.sh -O yed.sh
-chmod +x yed.sh
-./yed.sh
+# Leapp
+curl https://asset.noovolari.com/latest/Leapp_0.17.6_amd64.deb -o leapp.deb
+sudo dpkg -i leapp.deb
 
 # Zoom
-wget https://cdn.zoom.us/prod/5.6.13632.0328/zoom_amd64.deb -O zoom.deb
+wget https://cdn.zoom.us/prod/5.14.10.3738/zoom_amd64.deb -O zoom.deb
 sudo dpkg -i zoom.deb
 sudo apt -f install -y
 
@@ -121,14 +116,23 @@ wget https://download-cf.jetbrains.com/fonts/JetBrainsMono-2.225.zip -O JetBrain
 unzip JetBrainsMono.zip
 sudo mv fonts/ttf/ /usr/local/share/fonts/jetbrains-mono
 
+# tmux and packer
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# LSP
+npm i -g pyright
+npm install -g typescript typescript-language-server
+sudo apt-get install ripgrep -y
+sudo apt install fd-find -y
+npm i -g tree-sitter-cli
+
 # Final upgrade
 sudo apt update
-sudo apt upgrade -y
+sudo apt full-upgrade -y
 sudo apt autoremove -y
 
 # Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 sh miniconda.sh
-
-# Settings
-sudo update-alternatives --config editor
