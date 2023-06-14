@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=JMeter
+Type=Application
+Comment=API request
+Exec=/opt/apache-jmeter-5.5/bin/jmeter
+Icon=/opt/apache-jmeter-5.5/docs/images/jmeter.png
+Categories=Office;
+GenericName=JMeter
