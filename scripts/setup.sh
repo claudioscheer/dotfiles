@@ -29,12 +29,14 @@ sudo apt install -y \
     coreutils \
     net-tools \
     neovim \
-    syncthing
+    syncthing \
+    gnome-keyring
 
 # Neovim
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update
-sudo apt full-upgrade -y
+wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
+mv squashfs-root /opt/nvim
+sudo ln -sf /opt/nvim/AppRun /usr/bin/nvim
+sudo ln -sf /opt/nvim/AppRun /usr/bin/vim
 
 # zsh
 sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
