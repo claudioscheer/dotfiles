@@ -30,7 +30,8 @@ sudo apt install -y \
     net-tools \
     neovim \
     syncthing \
-    gnome-keyring
+    gnome-keyring \
+    fzf
 
 # Neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
