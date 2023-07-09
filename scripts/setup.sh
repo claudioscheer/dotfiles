@@ -32,7 +32,8 @@ sudo apt install -y \
     syncthing \
     gnome-keyring \
     fzf \
-    trash-cli
+    trash-cli \
+    imagemagick
 
 # Neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
