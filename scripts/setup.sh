@@ -122,6 +122,7 @@ sudo apt-get update && sudo apt-get install spotify-client -y
 # Go
 wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz -O go.tar.gz
 sudo tar -C /usr/local -xzf go.tar.gz
+go install golang.org/x/tools/gopls@latest
 
 # JetBrains Mono font
 wget https://download-cf.jetbrains.com/fonts/JetBrainsMono-2.225.zip -O JetBrainsMono.zip
