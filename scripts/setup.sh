@@ -111,6 +111,15 @@ wget https://cdn.zoom.us/prod/5.14.10.3738/zoom_amd64.deb -O zoom.deb
 sudo dpkg -i zoom.deb
 sudo apt -f install -y
 
+# Spotify
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client -y 
+
+# Go
+wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz -O go.tar.gz
+sudo tar -C /usr/local -xzf go.tar.gz
+
 # JetBrains Mono font
 wget https://download-cf.jetbrains.com/fonts/JetBrainsMono-2.225.zip -O JetBrainsMono.zip
 unzip JetBrainsMono.zip
