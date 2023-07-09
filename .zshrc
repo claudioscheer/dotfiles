@@ -8,6 +8,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go-workspace
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/projects/synergy/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
