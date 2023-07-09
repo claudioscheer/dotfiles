@@ -18,11 +18,11 @@ if [[ -z $TMUX ]]; then
   tmux rename-window -t $session:0 "nvim"
   tmux send-keys -t $session:0 "nvim" C-m
   tmux split-window -t $session:0 -v -p 25 -c $selected
-  tmux select-pane -t $session:0
+  tmux select-pane -t 0
 
   tmux new-window -t $session:1 -n "cmd" -c $selected
   tmux split-window -t $session:1 -v -p 50 -c $selected
-  tmux select-pane -t $session:0
+  tmux select-pane -t 0
 
   tmux select-window -t $session:0
   tmux attach-session -t $session
@@ -36,11 +36,11 @@ if ! tmux has-session -t=$session 2> /dev/null; then
   tmux rename-window -t $session:0 "nvim"
   tmux send-keys -t $session:0 "nvim" C-m
   tmux split-window -t $session:0 -v -p 25 -c $selected
-  tmux select-pane -t $session:0
+  tmux select-pane -t 0
 
   tmux new-window -t $session:1 -n "cmd" -c $selected
   tmux split-window -t $session:1 -v -p 50 -c $selected
-  tmux select-pane -t $session:0
+  tmux select-pane -t 0
 
   tmux select-window -t $session:0
 fi
