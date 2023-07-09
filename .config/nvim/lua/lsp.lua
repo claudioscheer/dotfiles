@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
 -- Copilot
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_filetypes = {
-  ["*"] = false,
+  ["*"] = true,
   ["javascript"] = true,
   ["typescript"] = true,
   ["lua"] = false,
@@ -55,6 +55,8 @@ vim.g.copilot_filetypes = {
   ["python"] = true,
   ["html"] = true,
   ["css"] = true,
+  ["yaml"] = true,
+  ["json"] = true,
 }
 --
 
@@ -96,7 +98,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'tsserver', 'clangd', 'gopls', 'texlab' }
+local servers = { 'pyright', 'tsserver', 'clangd', 'gopls', 'texlab', 'terraformls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,

@@ -1,7 +1,5 @@
 [Brave]
 Description=Brave
-desktops=97ea2aa1-ae43-4315-934e-1c3c9d63f646
-desktopsrule=3
 ignoregeometry=true
 ignoregeometryrule=3
 maximizehorizrule=3
