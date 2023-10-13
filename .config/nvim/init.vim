@@ -9,7 +9,6 @@ set ignorecase
 set smartcase
 set encoding=UTF-8
 set number
-set relativenumber
 set autoindent
 set expandtab
 set autoread
@@ -88,10 +87,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume<cr>
 
 " Auto reload file when it changed.
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-"autocmd Filetype css setlocal tabstop=4
+autocmd FocusGained * checktime
 
 command! ExploreFind let @/=expand("%:t") | execute 'Vexplore' expand("%:h") | normal n
 
@@ -127,3 +123,6 @@ augroup END
 
 " Copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+
+au BufRead,BufNewFile *.tfvars set filetype=terraform
+au BufRead,BufNewFile *.tfstate set filetype=json

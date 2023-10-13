@@ -8,9 +8,9 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go-workspace
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/projects/synergy/bin
+export PATH=$PATH:/media/water/external/projects/synergy/bin
 
-alias ts="$HOME/projects/dotfiles/scripts/tmux-sessionizer.sh"
+alias ts="/media/water/external/projects/dotfiles/scripts/tmux-sessionizer.sh"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -137,3 +137,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
+source <(kubectl completion zsh)
+complete -C /usr/bin/terraform terraform
+source "$HOME/.cargo/env"
+
