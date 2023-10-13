@@ -1,8 +1,10 @@
 live_config_reload = true
 
 [cursor]
-style = "Beam"
 unfocused_hollow = true
+
+[cursor.style]
+shape = "Block"
 
 [env]
 TERM = "xterm-256color"
